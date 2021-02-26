@@ -1,0 +1,38 @@
+.submitButton {
+  background-color: white !important;
+}
+
+.input_container {
+  display: flex;
+  padding: 10%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input_container > div {
+  padding-bottom: 20px;
+}
+.quiz_start_text_ol {
+  font-size: 17px;
+}
+.quiz_start_text {
+  color: black !important;
+  font-size: 26px;
+  font-family: "Times New Roman", Times, serif;
+}
+.quiz_start_text_ins {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 752px) {
+  .quiz_start_text {
+    font-size: 16px;
+  }
+  .quiz_start_text_ol {
+    font-size: 12px;
+  }
+  .quiz_start_text_ins {
+    font-size: 16px;
+  }
+}

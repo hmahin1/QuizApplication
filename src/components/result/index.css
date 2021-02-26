@@ -1,0 +1,9 @@
+.color {
+  color: white;
+  font-size: 12px;
+}
+
+.container {
+  height: 500px;
+  overflow: auto;
+}
