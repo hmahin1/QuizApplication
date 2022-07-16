@@ -6,6 +6,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import firebase from "firebase";
+import Button from "@material-ui/core/Button";
 import "./index.css";
 
 const Result = props => {
@@ -109,13 +110,20 @@ const Result = props => {
       )}
       <br />
       {props.isAdmin ? (
-        <button
+         <Button
+         onClick={showResultDb}
+         className="result_btn"
+         variant="contained"
+       >
+         {!props.appState.showResult ? "Show result" : "Hide result"}
+       </Button>
+      /*   <button
           onClick={showResultDb}
           style={{ marginTop: "10%" }}
           color="white"
         >
           {!props.appState.showResult ? "Show result" : "Hide result"}
-        </button>
+        </button> */
       ) : (
         !props.appState.showResult && (
           <p style={{ marginTop: 10, fontSize: 12 }}>

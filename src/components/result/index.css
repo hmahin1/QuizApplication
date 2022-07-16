@@ -7,3 +7,11 @@
   height: 500px;
   overflow: auto;
 }
+
+.result_btn{
+  margin-top: 10px !important;
+  background-color: #1a4173 !important;
+  width: 150px;
+  color: #ffff !important;
+  border: #ffff 2px solid !important;
+}

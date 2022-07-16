@@ -4,7 +4,8 @@ import {
   LOGIN_FAILED,
   START_QUIZ,
   USER_RESULT,
-  USER_RESULT_FAILED
+  USER_RESULT_FAILED,
+  SHOW_ANSWER
 } from "../constants/action-types";
 import firebase from "firebase";
 
@@ -237,6 +238,22 @@ export const changeLoginState = () => {
         snapshot.forEach(function(data) {
           data.ref.child("state").set(false);
         });
+      });
+  };
+};
+
+export const getShowAnswerState = () => {
+  return dispatch => {
+    firebase
+      .database()
+      .ref("answerState")
+      .on("value", snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function(data) {
+            console.log(data.val(), "awssssawssssawssss");
+            dispatch({ type: SHOW_ANSWER, payload: data.val() });
+          });
+        }
       });
   };
 };

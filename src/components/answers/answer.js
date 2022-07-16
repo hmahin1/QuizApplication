@@ -8,16 +8,19 @@ import { connect } from "react-redux";
 import { data } from "../../constants/dummyData";
 import firebase from "firebase";
 
-const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
+const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) => {
   const [timer, setTimer] = useState(data.question[appState.state].timer);
   const [clickable, isClickable] = useState(true);
   const [duration, setDuration] = useState(
     data.question[appState.state].timer - 1
   );
-  const [answerColor1, setAnswerColor1] = useState("purple");
-  const [answerColor2, setAnswerColor2] = useState("purple");
-  const [answerColor3, setAnswerColor3] = useState("purple");
-  const [answerColor4, setAnswerColor4] = useState("purple");
+  // const [answerColor1, setAnswerColor1] = useState("purple");
+  // const [answerColor2, setAnswerColor2] = useState("purple");
+  // const [answerColor3, setAnswerColor3] = useState("purple");
+  // const [answerColor4, setAnswerColor4] = useState("purple");
+  // const [showCorrectAnswer] = useState("green");
+  const [questionStatus, setQuestionStatus] = useState(false);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
   let milliseconds = 100;
   let seconds = 0;
@@ -31,7 +34,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
       rank: appState.state,
       score: score.toFixed(2),
       totalCorrectAnswers: userResult["totalCorrectAnswers"] + 1
-      
+
     };
     actions.storeAnswer(obj, userResult["id"]);
   };
@@ -53,36 +56,69 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
         .ref("appState")
         .orderByChild("questionStatus")
         .once("value", snapshot => {
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             data.ref.child("questionStatus").set(false);
           });
         });
     }
-    data.question[appState.state].answer.forEach((e, i) => {
-      if (e.isTrue) {
-        answerSwitch(i + 1, "green");
-        return;
-      }
-    });
+
   };
-  const answerSwitch = (answer, color) => {
-    switch (answer) {
-      case 1:
-        setAnswerColor1(color);
-        break;
-      case 2:
-        setAnswerColor2(color);
-        break;
-      case 3:
-        setAnswerColor3(color);
-        break;
-      default:
-        setAnswerColor4(color);
-        break;
-    }
-  };
+  // const answerSwitch = (answer, color) => {
+  //   switch (answer) {
+  //     case 1:
+  //       setAnswerColor1(color);
+  //       break;
+  //     case 2:
+  //       setAnswerColor2(color);
+  //       break;
+  //     case 3:
+  //       setAnswerColor3(color);
+  //       break;
+  //     default:
+  //       setAnswerColor4(color);
+  //       break;
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   console.log(showAnswer,'opppppp')
+  //   if (showAnswer) {
+  //     debugger;
+  //     data.question[appState.state].answer.forEach((e, i) => {
+  //       if (e.isTrue) {
+  //         answerSwitch(i + 1, "green");
+  //         return;
+  //       }
+  //     });
+  //   }
+  // }, [showAnswer])
+
   useEffect(() => {
-    if (!appState.questionStatus) {
+    if (!questionStatus) {
+      isClickable(false);
+      setDuration(0);
+    }
+  }, [questionStatus])
+
+  useEffect(() => {
+    isClickable(true);
+    setDuration(data.question[appState.state].timer - 1);
+    // setAnswerColor1("purple");
+    // setAnswerColor2("purple");
+    // setAnswerColor3("purple");
+    // setAnswerColor4("purple");
+    setTimer(timer => timer + 1);
+  }, [questionNumber])
+
+  useEffect(() => {
+    if (appState.questionStatus !== questionStatus) {
+      setQuestionStatus(appState.questionStatus)
+    }
+    if (appState.state !== questionNumber) {
+      setQuestionNumber(appState.state)
+    }
+
+    /* if (!appState.questionStatus) {
       isClickable(false);
       setDuration(0);
     } else {
@@ -93,30 +129,45 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
       setAnswerColor3("purple");
       setAnswerColor4("purple");
     }
-    setTimer(timer => timer + 1);
+    setTimer(timer => timer + 1); */
   }, [appState]);
+
+
+  const setShowCorrectAnswer = () => {
+    firebase
+      .database()
+      .ref("answerState")
+      .orderByChild("state")
+      .once("value", snapshot => {
+        snapshot.forEach(function (data) {
+          data.ref.set(!showAnswer);
+        });
+      });
+  }
 
   const handleClickAnswerCommon = (isTrue, value) => {
     if (clickable) {
-      if (isTrue){
+      if (isTrue) {
         correctAnswer();
-      }else{
+      } else {
         updateCurrentQuestionClick();
       }
-      answerSwitch(value, "grey");
+      // answerSwitch(value, "grey");
       isClickable(false);
     }
   };
 
   const onClickNextQuestion = () => {
     const milliseconds = appState.state + 1;
+    setShowCorrectAnswer();
+
     // localStorage.setItem("close",false);
     firebase
       .database()
       .ref("appState")
       .orderByChild("state")
       .once("value", snapshot => {
-        snapshot.forEach(function(data) {
+        snapshot.forEach(function (data) {
           data.ref.child("state").set(milliseconds);
           data.ref.child("questionStatus").set(true);
         });
@@ -176,7 +227,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
                 1
               )
             }
-            className={answerColor1}
+            // className={answerColor1}
+            className={showAnswer ? data.question[appState.state].answer[0].isTrue ? "green" : "purple" : "purple"}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -192,7 +244,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
                 2
               )
             }
-            className={answerColor2}
+            // className={answerColor2}
+            className={showAnswer ? data.question[appState.state].answer[1].isTrue ? "green" : "purple" : "purple"}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -210,7 +263,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
                 3
               )
             }
-            className={answerColor3}
+            // className={answerColor3}
+            className={showAnswer ? data.question[appState.state].answer[2].isTrue ? "green" : "purple" : "purple"}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -226,7 +280,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
                 4
               )
             }
-            className={answerColor4}
+            className={showAnswer ? data.question[appState.state].answer[3].isTrue ? "green" : "purple" : "purple"}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -237,14 +291,28 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
       </div>
 
       {isAdmin && (
-        <Button
-          onClick={onClickNextQuestion}
-          className="admin_button"
-          variant="contained"
-          color="primary"
-        >
-          Next Question
-        </Button>
+        <div className="answer_container">
+          <div>
+            <Button
+              onClick={onClickNextQuestion}
+              className="admin_button"
+              variant="contained"
+              color="primary"
+            >
+              Next Question
+            </Button>
+          </div>
+          <div>
+            <Button
+              onClick={setShowCorrectAnswer}
+              className="admin_button"
+              variant="contained"
+              color="primary"
+            >
+              Show Answer
+            </Button>
+          </div>
+        </div>
       )}
     </div>
   );

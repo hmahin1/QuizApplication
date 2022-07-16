@@ -3,7 +3,8 @@ import {
   LOGIN_FAILED,
   GET_APP_STATE,
   START_QUIZ,
-  USER_RESULT
+  USER_RESULT,
+  SHOW_ANSWER
 } from "../constants/action-types";
 
 const initialState = {
@@ -43,6 +44,12 @@ const userReducer = (state = initialState, action) => {
     return {
       ...state,
       isLoggedIn: true
+    };
+  }
+  if (action.type === SHOW_ANSWER) {
+    return {
+      ...state,
+      showAnswer: action.payload
     };
   }
   if (action.type === USER_RESULT) {

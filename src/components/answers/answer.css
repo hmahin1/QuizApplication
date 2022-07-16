@@ -64,6 +64,8 @@
 
 .admin_button {
   margin-top: 30px !important;
+  width: 300px;
+  background-color: #1a4173 !important;
 }
 
 .question {
