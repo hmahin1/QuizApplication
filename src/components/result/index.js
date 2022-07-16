@@ -50,10 +50,11 @@ const Result = props => {
     return (
       <>
         <TableRow key={result.id}>
+        {props.limit === 50 && (
           <TableCell>
             <b className="color">{index + 1}</b>
           </TableCell>
-
+        )}
           <TableCell className="color" component="th" scope="row">
             <p className="color">{result.name}</p>
           </TableCell>
