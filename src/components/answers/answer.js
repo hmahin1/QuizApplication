@@ -20,6 +20,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   // const [answerColor4, setAnswerColor4] = useState("purple");
   // const [showCorrectAnswer] = useState("green");
   const [questionStatus, setQuestionStatus] = useState(false);
+  const [questionAskedTime, setQuestionAskedTime] = useState(null);
   const [questionNumber, setQuestionNumber] = useState(1);
 
   let milliseconds = 100;
@@ -96,13 +97,13 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   useEffect(() => {
     if (!questionStatus) {
       isClickable(false);
-      setDuration(0);
+      // setDuration(0);
     }
   }, [questionStatus])
 
   useEffect(() => {
     isClickable(true);
-    setDuration(data.question[appState.state].timer - 1);
+    // setDuration(data.question[appState.state].timer - 1);
     // setAnswerColor1("purple");
     // setAnswerColor2("purple");
     // setAnswerColor3("purple");
@@ -111,11 +112,32 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [questionNumber])
 
   useEffect(() => {
+    if(questionAskedTime){
+
+      isClickable(true);
+      console.log(new Date().toISOString(),  new Date())
+      const secondsPassedAfterQuestion = (new Date().getTime() - new Date(questionAskedTime).getTime())/1000;
+      debugger
+      if(secondsPassedAfterQuestion > 20) setDuration(0)
+      else setDuration(data.question[appState.state].timer - secondsPassedAfterQuestion );
+    }
+    // setAnswerColor1("purple");
+    // setAnswerColor2("purple");
+    // setAnswerColor3("purple");
+    // setAnswerColor4("purple");
+    // setTimer(timer => timer + 1);
+  }, [questionAskedTime])
+
+  useEffect(() => {
+    
     if (appState.questionStatus !== questionStatus) {
       setQuestionStatus(appState.questionStatus)
     }
     if (appState.state !== questionNumber) {
       setQuestionNumber(appState.state)
+    }
+    if (appState.timestamp !== questionAskedTime) {
+      setQuestionAskedTime(appState.timestamp)
     }
 
     /* if (!appState.questionStatus) {
@@ -133,14 +155,14 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [appState]);
 
 
-  const setShowCorrectAnswer = () => {
+  const setShowCorrectAnswer = (stateToSet) => {
     firebase
       .database()
       .ref("answerState")
       .orderByChild("state")
       .once("value", snapshot => {
         snapshot.forEach(function (data) {
-          data.ref.set(!showAnswer);
+          data.ref.set(stateToSet);
         });
       });
   }
@@ -159,7 +181,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
 
   const onClickNextQuestion = () => {
     const milliseconds = appState.state + 1;
-    setShowCorrectAnswer();
+    setShowCorrectAnswer(false);
 
     // localStorage.setItem("close",false);
     firebase
@@ -170,6 +192,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
         snapshot.forEach(function (data) {
           data.ref.child("state").set(milliseconds);
           data.ref.child("questionStatus").set(true);
+          data.ref.child("timestamp").set(new Date().toISOString());
         });
       });
   };
@@ -304,7 +327,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
           </div>
           <div>
             <Button
-              onClick={setShowCorrectAnswer}
+              onClick={() => setShowCorrectAnswer(true)}
               className="admin_button"
               variant="contained"
               color="primary"
