@@ -11,6 +11,7 @@ import firebase from "firebase";
 const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) => {
   const [timer, setTimer] = useState(data.question[appState.state].timer);
   const [clickable, isClickable] = useState(true);
+  const [optionNumberClicked, setOptionNumberClicked] = useState(-1);
   const [duration, setDuration] = useState(
     data.question[appState.state].timer - 1
   );
@@ -117,7 +118,6 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
       isClickable(true);
       console.log(new Date().toISOString(),  new Date())
       const secondsPassedAfterQuestion = (new Date().getTime() - new Date(questionAskedTime).getTime())/1000;
-      debugger
       if(secondsPassedAfterQuestion > 20) setDuration(0)
       else setDuration(data.question[appState.state].timer - secondsPassedAfterQuestion );
     }
@@ -174,12 +174,13 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
       } else {
         updateCurrentQuestionClick();
       }
-      // answerSwitch(value, "grey");
+      setOptionNumberClicked(value);
       isClickable(false);
     }
   };
 
   const onClickNextQuestion = () => {
+    setOptionNumberClicked(-1);
     const milliseconds = appState.state + 1;
     setShowCorrectAnswer(false);
 
@@ -222,6 +223,17 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
     );
   };
 
+  const displayOptionClass = (optionNumber) => {
+    if(showAnswer){
+      if(data.question[appState.state].answer[optionNumber-1].isTrue) return "green";
+      else if(optionNumber === optionNumberClicked) return "red";
+      else return "purple";
+    } else {
+      if(optionNumberClicked !== -1 && optionNumber === optionNumberClicked) return "grey";
+      else  return "purple";
+    }
+  }
+
   return (
     <div className="answer_component">
       <span align="left" className="question_no_container">
@@ -251,7 +263,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
               )
             }
             // className={answerColor1}
-            className={showAnswer ? data.question[appState.state].answer[0].isTrue ? "green" : "purple" : "purple"}
+            // className={showAnswer ? data.question[appState.state].answer[0].isTrue ? "green" : "purple" : "purple"}
+            className={displayOptionClass(1)}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -268,7 +281,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
               )
             }
             // className={answerColor2}
-            className={showAnswer ? data.question[appState.state].answer[1].isTrue ? "green" : "purple" : "purple"}
+            // className={showAnswer ? data.question[appState.state].answer[1].isTrue ? "green" : "purple" : "purple"}
+            className={displayOptionClass(2)}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -287,7 +301,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
               )
             }
             // className={answerColor3}
-            className={showAnswer ? data.question[appState.state].answer[2].isTrue ? "green" : "purple" : "purple"}
+            // className={showAnswer ? data.question[appState.state].answer[2].isTrue ? "green" : "purple" : "purple"}
+            className={displayOptionClass(3)}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}
@@ -303,7 +318,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
                 4
               )
             }
-            className={showAnswer ? data.question[appState.state].answer[3].isTrue ? "green" : "purple" : "purple"}
+            // className={showAnswer ? data.question[appState.state].answer[3].isTrue ? "green" : "purple" : "purple"}
+            className={displayOptionClass(4)}
             variant="outlined"
             color="primary"
             disabled={!appState.questionStatus || userResult.rank == appState.state}

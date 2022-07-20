@@ -55,6 +55,13 @@
   color: white !important;
 }
 
+.red {
+  margin-top: 15px !important;
+  width: 300px;
+  background-color: red !important;
+  color: white !important;
+}
+
 .purple {
   margin-top: 15px !important;
   border-color: #1a4172 !important;
