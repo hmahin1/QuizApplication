@@ -4,7 +4,8 @@ import {
   GET_APP_STATE,
   START_QUIZ,
   USER_RESULT,
-  SHOW_ANSWER
+  SHOW_ANSWER,
+  LOGOUT
 } from "../constants/action-types";
 
 const initialState = {
@@ -32,6 +33,15 @@ const userReducer = (state = initialState, action) => {
       ...state,
       errorMessage: action.payload,
       error: true
+    };
+  }
+  if (action.type === LOGOUT) {
+    return {
+      ...state,
+      error: false,
+      loginSuccess: false,
+      isLoggedIn: false,
+      errorMessage: ''
     };
   }
   if (action.type === GET_APP_STATE) {

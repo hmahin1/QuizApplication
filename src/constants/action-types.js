@@ -6,3 +6,4 @@ export const START_QUIZ= "START_QUIZ";
 export const USER_RESULT= "USER_RESULT";
 export const USER_RESULT_FAILED = "USER_RESULT_FAILED";
 export const SHOW_ANSWER = "SHOW_ANSWER";
+export const LOGOUT="LOGOUT";
