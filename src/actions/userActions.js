@@ -99,6 +99,17 @@ export const startQuiz = () => {
       .once("value", snapshot => {
         snapshot.forEach(function (data) {
           data.ref.child("state").set(true);
+        });
+      });
+
+      firebase
+      .database()
+      .ref("appState")
+      .orderByChild("state")
+      .once("value", snapshot => {
+        debugger
+        snapshot.forEach(function (data) {
+          data.ref.child("timestamp").set(new Date().toISOString());
           dispatch({ type: START_QUIZ, payload: "" });
         });
       });

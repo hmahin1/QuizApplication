@@ -10,7 +10,7 @@ import firebase from "firebase";
 
 const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) => {
   const [timer, setTimer] = useState(data.question[appState.state].timer);
-  const [clickable, isClickable] = useState(true);
+  // const [clickable, isClickable] = useState(true);
   const [optionNumberClicked, setOptionNumberClicked] = useState(-1);
   const [duration, setDuration] = useState(
     data.question[appState.state].timer - 1
@@ -22,7 +22,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   // const [showCorrectAnswer] = useState("green");
   const [questionStatus, setQuestionStatus] = useState(false);
   const [questionAskedTime, setQuestionAskedTime] = useState(null);
-  const [questionNumber, setQuestionNumber] = useState(1);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
   let milliseconds = 100;
   let seconds = 0;
@@ -48,7 +48,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
     actions.storeAnswer(obj, userResult["id"]);
   };
   const onCompleteTimer = () => {
-    isClickable(false);
+    // isClickable(false);
     milliseconds = 0;
     console.log(user, "userss");
     if (user.role == "admin" || JSON.stringify(user.role == "admin")) {
@@ -95,27 +95,29 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   //   }
   // }, [showAnswer])
 
-  useEffect(() => {
-    if (!questionStatus) {
-      isClickable(false);
-      // setDuration(0);
-    }
-  }, [questionStatus])
+  // useEffect(() => {
+  //   if (!questionStatus) {
+  //     isClickable(false);
+  //     // setDuration(0);
+  //   }
+  // }, [questionStatus])
 
   useEffect(() => {
-    isClickable(true);
+    // isClickable(true);
     // setDuration(data.question[appState.state].timer - 1);
     // setAnswerColor1("purple");
     // setAnswerColor2("purple");
     // setAnswerColor3("purple");
     // setAnswerColor4("purple");
+    setOptionNumberClicked(-1);
     setTimer(timer => timer + 1);
   }, [questionNumber])
 
   useEffect(() => {
+    debugger
     if(questionAskedTime){
 
-      isClickable(true);
+      // isClickable(true);
       console.log(new Date().toISOString(),  new Date())
       const secondsPassedAfterQuestion = (new Date().getTime() - new Date(questionAskedTime).getTime())/1000;
       if(secondsPassedAfterQuestion > 20) setDuration(0)
@@ -126,7 +128,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
     // setAnswerColor3("purple");
     // setAnswerColor4("purple");
     // setTimer(timer => timer + 1);
-  }, [questionAskedTime])
+  }, [questionAskedTime, ])
 
   useEffect(() => {
     
@@ -168,19 +170,18 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }
 
   const handleClickAnswerCommon = (isTrue, value) => {
-    if (clickable) {
+    // if (clickable) {
       if (isTrue) {
         correctAnswer();
       } else {
         updateCurrentQuestionClick();
       }
       setOptionNumberClicked(value);
-      isClickable(false);
-    }
+      // isClickable(false);
+    // }
   };
 
   const onClickNextQuestion = () => {
-    setOptionNumberClicked(-1);
     const milliseconds = appState.state + 1;
     setShowCorrectAnswer(false);
 
