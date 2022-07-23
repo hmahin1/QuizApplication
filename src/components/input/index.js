@@ -125,7 +125,18 @@ const CustomizedInputs = ({
   };
 
   const startQuiz = () => {
+    firebase
+      .database()
+      .ref("appState")
+      .orderByChild("state")
+      .once("value", snapshot => {
+        snapshot.forEach(function (data) {
+          data.ref.child("questionStatus").set(true);
+          data.ref.child("timestamp").set(new Date().toISOString());
+        });
+      });
     actions.startQuiz();
+    
   };
   return (
     <div className="input_container" align="center">

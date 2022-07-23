@@ -114,7 +114,6 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [questionNumber])
 
   useEffect(() => {
-    debugger
     if(questionAskedTime){
 
       // isClickable(true);
@@ -128,7 +127,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
     // setAnswerColor3("purple");
     // setAnswerColor4("purple");
     // setTimer(timer => timer + 1);
-  }, [questionAskedTime, ])
+  }, [questionAskedTime])
 
   useEffect(() => {
     
@@ -268,7 +267,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
             className={displayOptionClass(1)}
             variant="outlined"
             color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
+            disabled={!questionStatus || userResult.rank == appState.state}
           >
             {lineBreakString(data.question[appState.state].answer[0].details)}
           </Button>
@@ -286,7 +285,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
             className={displayOptionClass(2)}
             variant="outlined"
             color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
+            disabled={!questionStatus || userResult.rank == appState.state}
           >
             {lineBreakString(data.question[appState.state].answer[1].details)}
           </Button>
@@ -306,7 +305,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
             className={displayOptionClass(3)}
             variant="outlined"
             color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
+            disabled={!questionStatus || userResult.rank == appState.state}
           >
             {lineBreakString(data.question[appState.state].answer[2].details)}
           </Button>
@@ -323,7 +322,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
             className={displayOptionClass(4)}
             variant="outlined"
             color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
+            disabled={!questionStatus || userResult.rank == appState.state}
           >
             {lineBreakString(data.question[appState.state].answer[3].details)}
           </Button>
