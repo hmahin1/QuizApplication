@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/QuizApplication/static/css/main.91677825.chunk.css",
-    "main.js": "/QuizApplication/static/js/main.628133fa.chunk.js",
-    "main.js.map": "/QuizApplication/static/js/main.628133fa.chunk.js.map",
-    "runtime-main.js": "/QuizApplication/static/js/runtime-main.2b897a10.js",
-    "runtime-main.js.map": "/QuizApplication/static/js/runtime-main.2b897a10.js.map",
-    "static/js/2.1266b036.chunk.js": "/QuizApplication/static/js/2.1266b036.chunk.js",
-    "static/js/2.1266b036.chunk.js.map": "/QuizApplication/static/js/2.1266b036.chunk.js.map",
-    "static/js/3.ebb67ead.chunk.js": "/QuizApplication/static/js/3.ebb67ead.chunk.js",
-    "static/js/3.ebb67ead.chunk.js.map": "/QuizApplication/static/js/3.ebb67ead.chunk.js.map",
+    "main.css": "/QuizApplication/static/css/main.8b565992.chunk.css",
+    "main.js": "/QuizApplication/static/js/main.230d4217.chunk.js",
+    "main.js.map": "/QuizApplication/static/js/main.230d4217.chunk.js.map",
+    "runtime-main.js": "/QuizApplication/static/js/runtime-main.11b8bb11.js",
+    "runtime-main.js.map": "/QuizApplication/static/js/runtime-main.11b8bb11.js.map",
+    "static/js/2.874f0323.chunk.js": "/QuizApplication/static/js/2.874f0323.chunk.js",
+    "static/js/2.874f0323.chunk.js.map": "/QuizApplication/static/js/2.874f0323.chunk.js.map",
+    "static/js/3.fe20d6c5.chunk.js": "/QuizApplication/static/js/3.fe20d6c5.chunk.js",
+    "static/js/3.fe20d6c5.chunk.js.map": "/QuizApplication/static/js/3.fe20d6c5.chunk.js.map",
     "index.html": "/QuizApplication/index.html",
-    "static/css/main.91677825.chunk.css.map": "/QuizApplication/static/css/main.91677825.chunk.css.map",
-    "static/js/2.1266b036.chunk.js.LICENSE.txt": "/QuizApplication/static/js/2.1266b036.chunk.js.LICENSE.txt",
+    "static/css/main.8b565992.chunk.css.map": "/QuizApplication/static/css/main.8b565992.chunk.css.map",
+    "static/js/2.874f0323.chunk.js.LICENSE.txt": "/QuizApplication/static/js/2.874f0323.chunk.js.LICENSE.txt",
     "static/media/logo.8f8367d4.png": "/QuizApplication/static/media/logo.8f8367d4.png",
     "static/media/mastermind2.a55aef21.png": "/QuizApplication/static/media/mastermind2.a55aef21.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b897a10.js",
-    "static/js/2.1266b036.chunk.js",
-    "static/css/main.91677825.chunk.css",
-    "static/js/main.628133fa.chunk.js"
+    "static/js/runtime-main.11b8bb11.js",
+    "static/js/2.874f0323.chunk.js",
+    "static/css/main.8b565992.chunk.css",
+    "static/js/main.230d4217.chunk.js"
   ]
 }
