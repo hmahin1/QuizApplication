@@ -85,8 +85,13 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [appState]);
 
 
-  const setShowCorrectAnswer = () => {
-    const stateToSet = !showAnswer
+  const setShowCorrectAnswer = (value) => {
+    let stateToSet; 
+    if(value == 'next-question'){
+      stateToSet = false;
+    }else{
+      stateToSet = !showAnswer;
+    }
     firebase
       .database()
       .ref("answerState")
@@ -108,7 +113,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   };
 
   const onClickNextQuestion = () => {
-    setShowCorrectAnswer();
+    setShowCorrectAnswer('next-question');
     const milliseconds = questionNumber + 1;
     firebase
       .database()
@@ -265,7 +270,7 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
           </div>
           <div>
             <Button
-              onClick={() => setShowCorrectAnswer()}
+              onClick={() => setShowCorrectAnswer('show-hide')}
               className="admin_button"
               variant="contained"
               color="primary"
