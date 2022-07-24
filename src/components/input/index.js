@@ -152,6 +152,7 @@ const CustomizedInputs = ({
           <Button
             onClick={handleSubmit}
             variant="contained"
+            color="primary"
             className="submitButton"
             disabled={!value}
           >
@@ -216,6 +217,7 @@ const CustomizedInputs = ({
           <Button
             onClick={startQuiz}
             variant="contained"
+            color="primary"
             className="submitButton"
           >
             Start Quiz

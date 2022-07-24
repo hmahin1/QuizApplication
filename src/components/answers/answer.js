@@ -72,7 +72,6 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [questionAskedTime])
 
   useEffect(() => {
-    debugger
     if (appState.questionStatus !== questionStatus) {
       setQuestionStatus(appState.questionStatus)
     }
@@ -86,7 +85,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   }, [appState]);
 
 
-  const setShowCorrectAnswer = (stateToSet) => {
+  const setShowCorrectAnswer = () => {
+    const stateToSet = !showAnswer
     firebase
       .database()
       .ref("answerState")
@@ -108,9 +108,8 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
   };
 
   const onClickNextQuestion = () => {
+    setShowCorrectAnswer();
     const milliseconds = questionNumber + 1;
-    setShowCorrectAnswer(false);
-
     firebase
       .database()
       .ref("appState")
@@ -266,12 +265,12 @@ const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) =
           </div>
           <div>
             <Button
-              onClick={() => setShowCorrectAnswer(true)}
+              onClick={() => setShowCorrectAnswer()}
               className="admin_button"
               variant="contained"
               color="primary"
             >
-              Show Answer
+             {showAnswer ? 'Hide Answer': 'Show Answer'}
             </Button>
           </div>
         </div>
