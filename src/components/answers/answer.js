@@ -7,286 +7,293 @@ import * as Actions from "../../actions/userActions";
 import { connect } from "react-redux";
 import { data } from "../../constants/dummyData";
 import firebase from "firebase";
-import { CircularProgress } from "@material-ui/core";
+import {
+  Checkbox,
+	CircularProgress,
+	FormControlLabel,
+	FormGroup,
+	Switch,
+	TextField,
+} from "@material-ui/core";
 
-const Answers = ({ isAdmin, user, appState, userResult, actions, showAnswer }) => {
-  const [timer, setTimer] = useState(data.question[appState.state].timer);
-  const [optionNumberClicked, setOptionNumberClicked] = useState(-1);
-  const [duration, setDuration] = useState(
-    data.question[appState.state].timer - 1
-  );
-  const [questionStatus, setQuestionStatus] = useState(false);
-  const [questionAskedTime, setQuestionAskedTime] = useState(null);
-  const [questionNumber, setQuestionNumber] = useState(-1);
+const Answers = ({
+	isAdmin,
+	user,
+	appState,
+	userResult,
+	actions,
+	showAnswer,
+}) => {
+	const [timer, setTimer] = useState(data.question[appState.state].timer);
+	const [optionNumberClicked, setOptionNumberClicked] = useState(-1);
+	const [duration, setDuration] = useState(
+		data.question[appState.state].timer - 1
+	);
+	const [questionStatus, setQuestionStatus] = useState(false);
+	const [questionAskedTime, setQuestionAskedTime] = useState(null);
+	const [questionNumber, setQuestionNumber] = useState(-1);
+  const [manualUpdate, setManualUpdateState] = useState({display: false, questionNumber :1, allowAnswer: true})
 
-  let milliseconds = 100;
-  let seconds = 0;
+	let milliseconds = 100;
+	let seconds = 0;
 
-  const correctAnswer = () => {
-    const answerTime = +(seconds + "." + milliseconds);
-    const questionTime = +data.question[questionNumber].timer;
-    const correctTime = questionTime - answerTime;
-    const score = +userResult.score + correctTime;
-    const obj = {
-      rank: questionNumber,
-      score: score.toFixed(2),
-      totalCorrectAnswers: userResult["totalCorrectAnswers"] + 1
+	const correctAnswer = () => {
+		const answerTime = +(seconds + "." + milliseconds);
+		const questionTime = +data.question[questionNumber].timer;
+		const correctTime = questionTime - answerTime;
+		const score = +userResult.score + correctTime;
+		const obj = {
+			rank: questionNumber,
+			score: score.toFixed(2),
+			totalCorrectAnswers: userResult["totalCorrectAnswers"] + 1,
+		};
+		actions.storeAnswer(obj, userResult["id"]);
+	};
 
-    };
-    actions.storeAnswer(obj, userResult["id"]);
-  };
+	const updateCurrentQuestionClick = () => {
+		const obj = {
+			rank: questionNumber,
+		};
+		actions.storeAnswer(obj, userResult["id"]);
+	};
+	const onCompleteTimer = () => {
+		milliseconds = 0;
+		if (user.role == "admin" || JSON.stringify(user.role == "admin")) {
+			console.log("completessd timer asdasd");
+			firebase
+				.database()
+				.ref("appState")
+				.orderByChild("questionStatus")
+				.once("value", (snapshot) => {
+					snapshot.forEach(function (data) {
+						data.ref.child("questionStatus").set(false);
+					});
+				});
+		}
+	};
 
-  const updateCurrentQuestionClick = () => {
-    const obj = {
-      rank: questionNumber,
-    };
-    actions.storeAnswer(obj, userResult["id"]);
-  };
-  const onCompleteTimer = () => {
-    milliseconds = 0;
-    if (user.role == "admin" || JSON.stringify(user.role == "admin")) {
-      console.log("completessd timer asdasd");
-      firebase
-        .database()
-        .ref("appState")
-        .orderByChild("questionStatus")
-        .once("value", snapshot => {
-          snapshot.forEach(function (data) {
-            data.ref.child("questionStatus").set(false);
-          });
-        });
-    }
-  };
+	useEffect(() => {
+		setOptionNumberClicked(-1);
+		setTimer((timer) => timer + 1);
+	}, [questionNumber]);
 
-  useEffect(() => {
-    setOptionNumberClicked(-1);
-    setTimer(timer => timer + 1);
-  }, [questionNumber])
+	useEffect(() => {
+		if (questionAskedTime) {
+			const secondsPassedAfterQuestion =
+				(new Date().getTime() - new Date(questionAskedTime).getTime()) / 1000;
+			if (secondsPassedAfterQuestion > 20) setDuration(0);
+			else
+				setDuration(
+					data.question[questionNumber].timer - secondsPassedAfterQuestion
+				);
+		}
+	}, [questionAskedTime]);
 
-  useEffect(() => {
-    if(questionAskedTime){
-      const secondsPassedAfterQuestion = (new Date().getTime() - new Date(questionAskedTime).getTime())/1000;
-      if(secondsPassedAfterQuestion > 20) setDuration(0)
-      else setDuration(data.question[questionNumber].timer - secondsPassedAfterQuestion );
-    }
-  }, [questionAskedTime])
+	useEffect(() => {
+		if (appState.questionStatus !== questionStatus) {
+			setQuestionStatus(appState.questionStatus);
+		}
+		// if (questionNumber === -1) {
+		// 	setQuestionNumber(appState.state);
+		// }
+		if (appState.timestamp !== questionAskedTime) {
+			setQuestionAskedTime(appState.timestamp);
+			setQuestionNumber(appState.state);
 
-  useEffect(() => {
-    if (appState.questionStatus !== questionStatus) {
-      setQuestionStatus(appState.questionStatus)
-    }
-    if (questionNumber === -1) {
-      setQuestionNumber(appState.state)
-    }
-    if (appState.timestamp !== questionAskedTime) {
-      setQuestionAskedTime(appState.timestamp)
-      if(questionNumber !== -1) setQuestionNumber(item => item + 1)
-    }
-  }, [appState]);
+			// if (questionNumber !== -1) setQuestionNumber((item) => item + 1);
+		}
+	}, [appState]);
 
+	const setShowCorrectAnswer = (value) => {
+		let stateToSet;
+		if (value == "next-question") {
+			stateToSet = false;
+		} else {
+			stateToSet = !showAnswer;
+		}
+		firebase
+			.database()
+			.ref("answerState")
+			.orderByChild("state")
+			.once("value", (snapshot) => {
+				snapshot.forEach(function (data) {
+					data.ref.set(stateToSet);
+				});
+			});
+	};
 
-  const setShowCorrectAnswer = (value) => {
-    let stateToSet; 
-    if(value == 'next-question'){
-      stateToSet = false;
-    }else{
-      stateToSet = !showAnswer;
-    }
-    firebase
-      .database()
-      .ref("answerState")
-      .orderByChild("state")
-      .once("value", snapshot => {
-        snapshot.forEach(function (data) {
-          data.ref.set(stateToSet);
-        });
-      });
-  }
+	const handleClickAnswerCommon = (isTrue, value) => {
+		if (isTrue) {
+			correctAnswer();
+		} else {
+			updateCurrentQuestionClick();
+		}
+		setOptionNumberClicked(value);
+	};
 
-  const handleClickAnswerCommon = (isTrue, value) => {
-      if (isTrue) {
-        correctAnswer();
-      } else {
-        updateCurrentQuestionClick();
-      }
-      setOptionNumberClicked(value);
-  };
+	const onClickNextQuestion = (isManualClicked = false) => {
+    debugger
+		if(!isManualClicked) setShowCorrectAnswer("next-question");
+		const updatedQuestionNumber = isManualClicked ? manualUpdate?.questionNumber-1 : questionNumber + 1;
+		firebase
+			.database()
+			.ref("appState")
+			.orderByChild("state")
+			.once("value", (snapshot) => {
+				snapshot.forEach(function (data) {
+					data.ref.child("state").set(updatedQuestionNumber);
+					data.ref.child("questionStatus").set(isManualClicked ? manualUpdate?.allowAnswer : true);
+					data.ref.child("timestamp").set(new Date().toISOString());
+				});
+			});
+	};
 
-  const onClickNextQuestion = () => {
-    setShowCorrectAnswer('next-question');
-    const milliseconds = questionNumber + 1;
-    firebase
-      .database()
-      .ref("appState")
-      .orderByChild("state")
-      .once("value", snapshot => {
-        snapshot.forEach(function (data) {
-          data.ref.child("state").set(milliseconds);
-          data.ref.child("questionStatus").set(true);
-          data.ref.child("timestamp").set(new Date().toISOString());
-        });
-      });
-  };
+	const children = ({ remainingTime }) => {
+		if (milliseconds === 10) {
+			milliseconds = 100;
+		} else {
+			milliseconds--;
+		}
+		seconds = remainingTime % 1000;
+		if (seconds < 1) {
+			seconds = 0 + "0";
+			milliseconds = 0 + "0";
+		}
 
-  const children = ({ remainingTime }) => {
-    if (milliseconds === 10) {
-      milliseconds = 100;
-    } else {
-      milliseconds--;
-    }
-    seconds = remainingTime % 1000;
-    if (seconds < 1) {
-      seconds = 0 + "0";
-      milliseconds = 0 + "0";
-    }
+		return `${seconds}:${milliseconds}`;
+	};
+	const lineBreakString = (value) => {
+		let result = value.split("/");
 
-    return `${seconds}:${milliseconds}`;
-  };
-  const lineBreakString = value => {
-    let result = value.split("/");
+		return (
+			<span>
+				{result[0]} <br />
+				{result[1]}
+			</span>
+		);
+	};
 
-    return (
-      <span>
-        {result[0]} <br />
-        {result[1]}
-      </span>
-    );
-  };
+	const displayOptionClass = (optionNumber) => {
+		if (showAnswer) {
+			if (data.question[questionNumber].answer[optionNumber - 1].isTrue)
+				return "green";
+			else if (optionNumber === optionNumberClicked) return "red";
+			else return "purple";
+		} else {
+			if (optionNumberClicked !== -1 && optionNumber === optionNumberClicked)
+				return "grey";
+			else return "purple";
+		}
+	};
 
-  const displayOptionClass = (optionNumber) => {
-    if(showAnswer){
-      if(data.question[questionNumber].answer[optionNumber-1].isTrue) return "green";
-      else if(optionNumber === optionNumberClicked) return "red";
-      else return "purple";
-    } else {
-      if(optionNumberClicked !== -1 && optionNumber === optionNumberClicked) return "grey";
-      else  return "purple";
-    }
-  }
+	if (questionNumber == -1 || appState.state === -1) {
+		return <CircularProgress />;
+	}
 
-  if(questionNumber == -1) {
-    return <CircularProgress />
-  }
+	const Option = ({ index }) => (
+		<div>
+			<Button
+				onClick={() =>
+					handleClickAnswerCommon(
+						data.question[questionNumber].answer[index].isTrue,
+						index + 1
+					)
+				}
+				className={displayOptionClass(index + 1)}
+				variant="outlined"
+				color="primary"
+				disabled={!questionStatus || userResult.rank == questionNumber}
+			>
+				{lineBreakString(data.question[questionNumber].answer[index].details)}
+			</Button>
+		</div>
+	);
 
-  return (
-    <div className="answer_component">
-      <span align="left" className="question_no_container">
-        Question {questionNumber + 1} / 40
-      </span>
-      <div className="timer" align="center">
-        <CountDownWrapper
-          children={children}
-          onComplete={onCompleteTimer}
-          timer={timer}
-          duration={duration}
-        />
-      </div>
+	return (
+		<div className="answer_component">
+			<span align="left" className="question_no_container">
+				Question {questionNumber + 1} / 40
+			</span>
+			<div className="timer" align="center">
+				<CountDownWrapper
+					children={children}
+					onComplete={onCompleteTimer}
+					timer={timer}
+					duration={duration}
+				/>
+			</div>
 
-      <div align="center" className="question">
-        <p>{data.question[questionNumber].description}</p>
-        <p>{data.question[questionNumber].description2}</p>
-      </div>
+			<div align="center" className="question">
+				<p>{data.question[questionNumber].description}</p>
+				<p>{data.question[questionNumber].description2}</p>
+			</div>
 
-      <div className="answer_container">
-        <div>
-          <Button
-            onClick={() =>
-              handleClickAnswerCommon(
-                data.question[questionNumber].answer[0].isTrue,
-                1
-              )
-            }
-            className={displayOptionClass(1)}
-            variant="outlined"
-            color="primary"
-            disabled={!questionStatus || userResult.rank == questionNumber}
-          >
-            {lineBreakString(data.question[questionNumber].answer[0].details)}
-          </Button>
-        </div>
-        <div>
-          <Button
-            onClick={() =>
-              handleClickAnswerCommon(
-                data.question[questionNumber].answer[1].isTrue,
-                2
-              )
-            }
-            className={displayOptionClass(2)}
-            variant="outlined"
-            color="primary"
-            disabled={!questionStatus || userResult.rank == questionNumber}
-          >
-            {lineBreakString(data.question[questionNumber].answer[1].details)}
-          </Button>
-        </div>
-      </div>
-      <div className="answer_container">
-        <div>
-          <Button
-            onClick={e =>
-              handleClickAnswerCommon(
-                data.question[questionNumber].answer[2].isTrue,
-                3
-              )
-            }
-            className={displayOptionClass(3)}
-            variant="outlined"
-            color="primary"
-            disabled={!questionStatus || userResult.rank == questionNumber}
-          >
-            {lineBreakString(data.question[questionNumber].answer[2].details)}
-          </Button>
-        </div>
-        <div>
-          <Button
-            onClick={e =>
-              handleClickAnswerCommon(
-                data.question[questionNumber].answer[3].isTrue,
-                4
-              )
-            }
-            className={displayOptionClass(4)}
-            variant="outlined"
-            color="primary"
-            disabled={!questionStatus || userResult.rank == questionNumber}
-          >
-            {lineBreakString(data.question[questionNumber].answer[3].details)}
-          </Button>
-        </div>
-      </div>
+			<div className="answer_container">
+				<Option index={0} />
+				<Option index={1} />
+			</div>
+			<div className="answer_container">
+				<Option index={2} />
+				<Option index={3} />
+			</div>
 
-      {isAdmin && (
-        <div className="answer_container">
-          <div>
-            <Button
-              onClick={onClickNextQuestion}
-              className="admin_button"
-              variant="contained"
-              color="primary"
-            >
-              Next Question
-            </Button>
-          </div>
-          <div>
-            <Button
-              onClick={() => setShowCorrectAnswer('show-hide')}
-              className="admin_button"
-              variant="contained"
-              color="primary"
-            >
-             {showAnswer ? 'Hide Answer': 'Show Answer'}
-            </Button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+			{isAdmin && (
+				<>
+					<div className="answer_container">
+						<div>
+							<Button
+								onClick={() => onClickNextQuestion(false)}
+								className="admin_button"
+								variant="contained"
+								color="primary"
+							>
+								Next Question
+							</Button>
+						</div>
+						<div>
+							<Button
+								onClick={() => setShowCorrectAnswer("show-hide")}
+								className="admin_button"
+								variant="contained"
+								color="primary"
+							>
+								{showAnswer ? "Hide Answer" : "Show Answer"}
+							</Button>
+						</div>
+            <div style={{marginTop:'15px' }} >
+						<FormControlLabel
+									control={<Checkbox onChange={(e) => setManualUpdateState({...manualUpdate, display:e.target.checked})} defaultChecked={false} />}
+									label={ <h4>Contol Manually</h4> }
+								/>
+						</div>
+					</div>
+					{manualUpdate.display && <div className="answer_container">
+						<div>
+							<FormGroup>
+								<FormControlLabel
+									control={<Switch onChange={(e) => setManualUpdateState({...manualUpdate, allowAnswer:e.target.checked})} />}
+									label="Allow user to answer"
+								/>
+							</FormGroup>
+						</div>
+						<div>
+							<TextField defaultValue={1} type="number"  onChange={(e) => setManualUpdateState({...manualUpdate, questionNumber: parseInt(e.target.value)})}  label="Question number" />
+						</div>
+            <div>
+              <Button variant="contained" color="primary" onClick={() => onClickNextQuestion(true)} >
+                Update
+              </Button>
+            </div>
+					</div>}
+				</>
+			)}
+		</div>
+	);
 };
-const mapStateToProps = props => ({});
+const mapStateToProps = (props) => ({});
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(Actions, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+	actions: bindActionCreators(Actions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Answers);
