@@ -201,7 +201,11 @@ const Answers = ({
         className={displayOptionClass(index + 1)}
         variant="outlined"
         color="primary"
-        disabled={!questionStatus || optionNumberClicked !== -1}
+        disabled={
+          !questionStatus ||
+          optionNumberClicked !== -1 ||
+          userResult.rank == questionNumber
+        }
       >
         {lineBreakString(data.question[questionNumber].answer[index].details)}
       </Button>
