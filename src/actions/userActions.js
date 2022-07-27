@@ -298,3 +298,25 @@ export const userLogout = (id) => {
       });
   }; */
 }
+export const resetResult = (value) => {
+  console.log("resetResultresetResult", value);
+  return dispatch => {
+    firebase
+      .database()
+      .ref("userResults")
+      .orderByChild("id")
+      .equalTo(value)
+      .once("value")
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          console.log("Error: passed");
+          snapshot.forEach(function (data) {
+            console.log("Error: passed", data.val());
+            data.ref.child("score").set(0);
+              data.ref.child("totalCorrectAnswers").set(0);
+              data.ref.child("rank").set(0);
+          });
+        }
+      });
+  };
+};

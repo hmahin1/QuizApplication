@@ -8,7 +8,9 @@ import TableRow from "@material-ui/core/TableRow";
 import firebase from "firebase";
 import Button from "@material-ui/core/Button";
 import "./index.css";
-
+import { bindActionCreators } from "redux";
+import * as Actions from "../../actions/userActions";
+import { connect } from "react-redux";
 const Result = props => {
   const [data, setData] = useState([]);
 
@@ -24,10 +26,16 @@ const Result = props => {
           datas.push(data.val());
         });
         datas.sort(
-          (a, b) =>
-            b.totalCorrectAnswers - a.totalCorrectAnswers || a.score - b.score
-        );
-
+          (a, b) =>{
+           /*  const obj = {
+              rank: 0,
+              score: 0,
+              totalCorrectAnswers: 0,
+            };
+            props.actions.storeAnswer(obj, a["id"]); */
+           return b.totalCorrectAnswers - a.totalCorrectAnswers || a.score - b.score
+          });
+       
         setData(datas);
         props.result(datas);
       });
@@ -47,6 +55,7 @@ const Result = props => {
 
   console.log(JSON.stringify(data));
   const showResultData = (result, index) => {
+
     return (
       <>
         <TableRow key={result.id}>
@@ -62,7 +71,7 @@ const Result = props => {
             <p className="color">{result.totalCorrectAnswers}</p>
           </TableCell>
           <TableCell className="color" align="right">
-            <p className="color">{result.score}</p>
+            <p className="color">{1000-result.score}</p>
           </TableCell>
         </TableRow>
       </>
@@ -135,4 +144,10 @@ const Result = props => {
     </div>
   );
 };
-export default Result;
+const mapStateToProps = (props) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+	actions: bindActionCreators(Actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result);

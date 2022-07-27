@@ -4,12 +4,22 @@ import Answers from "../answers/answer";
 import CustomizedInputs from "../input/index";
 import Register from "../register/register";
 import Result from "../result/index";
+import { useDispatch } from "react-redux";
+import { resetResult } from "../../actions/userActions";
 
 const Main = ({ isLoggedIn, user, appState, userResult, showAnswer, error }) => {
   const [rank, setRank] = useState(0);
 
+  const dispatch = useDispatch();
+
   const result = data => {
     data.filter((e, i) => {
+/*       const obj = {
+        rank: 0,
+        score: 0,
+        totalCorrectAnswers: 0,
+      };
+      dispatch(resetResult(e.id)) */
       if (e.id == user.id) {
         setRank(i + 1);
         return i;
