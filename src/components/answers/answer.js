@@ -29,7 +29,7 @@ const Answers = ({
   const [duration, setDuration] = useState(
     data.question[appState.state].timer - 1,
   )
-  const [questionStatus, setQuestionStatus] = useState(false)
+  const [questionStatus, setQuestionStatus] = useState(true)
   const [questionAskedTime, setQuestionAskedTime] = useState(null)
   const [questionNumber, setQuestionNumber] = useState(-1)
   const [manualUpdate, setManualUpdateState] = useState({
@@ -74,6 +74,7 @@ const Answers = ({
       const secondsPassedAfterQuestion =
         (new Date().getTime() - new Date(questionAskedTime).getTime()) / 1000
       if (secondsPassedAfterQuestion > 20) setDuration(0)
+	  else if(secondsPassedAfterQuestion < 0) setDuration(data.question[questionNumber].timer)
       else
         setDuration(
           data.question[questionNumber].timer - secondsPassedAfterQuestion,
@@ -82,18 +83,15 @@ const Answers = ({
   }, [questionAskedTime])
 
   useEffect(() => {
-    if (appState.questionStatus !== questionStatus) {
-      debugger
-      setQuestionStatus(appState.questionStatus)
-    }
-    // if (questionNumber === -1) {
-    // 	setQuestionNumber(appState.state);
+    // if (appState.questionStatus !== questionStatus) {
+    //   debugger
+    //   setQuestionStatus(appState.questionStatus)
     // }
+	
     if (appState.timestamp !== questionAskedTime) {
       setQuestionAskedTime(appState.timestamp)
       setQuestionNumber(appState.state)
-
-      // if (questionNumber !== -1) setQuestionNumber((item) => item + 1);
+	  setQuestionStatus(true)
     }
   }, [appState])
 
