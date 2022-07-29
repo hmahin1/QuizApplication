@@ -43,9 +43,9 @@ const Answers = ({
 
   const correctAnswer = () => {
     const answerTime = +(seconds + '.' + milliseconds)
-    const questionTime = +data.question[questionNumber].timer
-    const correctTime = questionTime - answerTime
-    const score = +userResult.score + correctTime
+    // const questionTime = +data.question[questionNumber].timer
+    // const correctTime = questionTime - answerTime
+    const score = +userResult.score + answerTime
     const obj = {
       rank: questionNumber,
       score: score.toFixed(2),
@@ -71,13 +71,15 @@ const Answers = ({
 
   useEffect(() => {
     if (questionAskedTime) {
-      const secondsPassedAfterQuestion =
-        (new Date().getTime() - new Date(questionAskedTime).getTime()) / 1000
+      const secondsPassedAfterQuestion = 
+        (new Date().getTime() - new Date(questionAskedTime).getTime()) / 1000;
+      const timeAllocatedForQuestion = data.question[questionNumber].timer;
+      const timeRemaining =  timeAllocatedForQuestion - secondsPassedAfterQuestion
       if (secondsPassedAfterQuestion > 20) setDuration(0)
-	  else if(secondsPassedAfterQuestion < 0) setDuration(data.question[questionNumber].timer)
+	    else if(timeRemaining > timeAllocatedForQuestion) setDuration(timeAllocatedForQuestion)
       else
         setDuration(
-          data.question[questionNumber].timer - secondsPassedAfterQuestion,
+          timeAllocatedForQuestion - secondsPassedAfterQuestion,
         )
     }
   }, [questionAskedTime])
@@ -91,7 +93,7 @@ const Answers = ({
     if (appState.timestamp !== questionAskedTime) {
       setQuestionAskedTime(appState.timestamp)
       setQuestionNumber(appState.state)
-	  setQuestionStatus(true)
+	    setQuestionStatus(true)
     }
   }, [appState])
 
