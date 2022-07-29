@@ -97,7 +97,7 @@ const Result = props => {
                   <b className="color">Correct Answers</b>
                 </TableCell>
                 <TableCell align="right">
-                  <b className="color">Score</b>
+                  <b className="color">Time</b>
                 </TableCell>
               </TableRow>
             </TableHead>

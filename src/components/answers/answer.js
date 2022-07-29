@@ -43,9 +43,9 @@ const Answers = ({
 
   const correctAnswer = () => {
     const answerTime = +(seconds + '.' + milliseconds)
-    // const questionTime = +data.question[questionNumber].timer
-    // const correctTime = questionTime - answerTime
-    const score = +userResult.score + answerTime
+    const questionTime = +data.question[questionNumber].timer
+    const correctTime = questionTime - answerTime
+    const score = +userResult.score + correctTime
     const obj = {
       rank: questionNumber,
       score: score.toFixed(2),
