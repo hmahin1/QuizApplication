@@ -2,230 +2,229 @@ export const data = {
   question: [
     {
       id: "1",
-      description: "Which is the lowest class of civil Award in Pakistan?",
-      description2: "پاکستان میں سب سے چھوٹا سول ایوارڈ  کونسا ہے؟",
+      description: "The last book of Allama Iqbal published after his death was",
+      description2: "علامہ اقبال کی آخری کتاب جو ان کی وفات کے بعد شائع ہوئ:۔",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Nishaan / نشان",
+          details: "Zarb e Kalim / ضرب کلیم",
           isTrue: false
         },
         {
           id: "2",
-          details: "Hilal / حلال",
-          isTrue: false
+          details: "Armaghane Hijazi / ارمغان حجازی",
+          isTrue: true
         },
         {
           id: "3",
-          details: "Sitara / ستارہ",
+          details: "Bang e dara / بانگ درا",
           isTrue: false
         },
         {
           id: "4",
-          details: "Tamgha / تمغہ",
-          isTrue: true
+          details: "None of These / ان میں سے کوئی نہیں",
+          isTrue: false
         }
       ]
     },
     {
       id: "2",
       description:
-        "Who was cited with the first Nishan-i-Haider for his gallant and actions of valor?",
+        "Hain Log Wohi Jahan Mein Ache, Aate Hain Jo Kaam Dusron Ke --- Ye alfaaz kis ne kahay thay?",
       description2:
-        "کونسے فوجی کو سب سے پہلے انکی بہادری اور دلیری پر نشان حیدرسے نوازا گیا؟",
+        "ہيں لوگ وہی جہاں ميں اچھے, آتے ہيں جو کام دُوسرں کے --- یہ الفاظ کس نے کہے تھے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Muhammad Sarwar Shaheed / محمد سرور شہید",
-          isTrue: true
+          details: "Pahaar / پہاڑ",
+          isTrue: false
         },
         {
           id: "2",
-          details: "Aziz bhatti Shaheed / عزیز بھٹی شہید",
+          details: "Gilehri / گلہری",
           isTrue: false
         },
         {
           id: "3",
-          details: "Rashid Minhas Shaheed / راشد منہاس شہید",
+          details: "Bulbul / بلبل",
           isTrue: false
         },
         {
           id: "4",
-          details: "kernel Sher Khan Shaheed / کرنل شیر خان شہید",
-          isTrue: false
+          details: "Jugnu / جگنو",
+          isTrue: true
         }
       ]
     },
     {
       id: "3",
       description:
-        "In which year Abdus Salam became the first Pakistani and the first Muslim to be awarded the Nobel Prize in the sciences?",
+        "misl-e-kalīm ho agar mārka aazmā koī, ab bhī daraḳht-e-tūr se aatī hai bāñg-e-lā-taḳhaf --- Is shair me Kis soorah ki taraf ishara kya gaya hay?",
       description2:
-        "عبد السلام کس سن میں سب سے پہلے نوبل پرائز جیتنے والے مسلمان اور پاکستانی بنے؟",
+        "مثل کلیم ہو اگر معرکہ آزما کؤی ، اب بھی درخت طور سے اتی ہے بانگ لا تخف --- اس شعر میں کس سورۃ کی طرف اشارہ کیا گیا ہے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "1978 / ۱۹۷۸",
+          details: "Surah Baqarah / سورہ بقرہ",
           isTrue: false
         },
         {
           id: "2",
-          details: "1979 / ۱۹۷۹",
-          isTrue: true
-        },
-        {
-          id: "3",
-          details: "1980 / ۱۹۸۰",
+          details: "Surah Bani Israeel / سورہ بنی اسرائیل",
           isTrue: false
         },
         {
+          id: "3",
+          details: "Surah Taha / سورہ طٰہٰ",
+          isTrue: true
+        },
+        {
           id: "4",
-          details: "1981 / ۱۹۸۱",
+          details: "Surah Anaam / سورہ انعام",
           isTrue: false
         }
       ]
     },
     {
       id: "4",
-      description: "Pakistan's largest coal reserves are found in which area?",
+      description: "Which one of these is not an honorary name of Allama Iqbal?",
       description2:
-        "پاکستان کے کوئلے کے سب سے بڑے ذخائر کس علاقے میں پائے جاتے ہیں؟",
+        "ان میں سے کون سا نام علامہ اقبال کا اعزازی نام نہیں ہے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Duki / دکی‎",
-          isTrue: false
-        },
-        {
-          id: "2",
-          details: "Thar / تھر",
+          details: "Mufassir e Pakistan / مفسر پاکستان",
           isTrue: true
         },
         {
+          id: "2",
+          details: "Shair e Mumliqat / شاعرمملکت",
+          isTrue: false
+        },
+        {
           id: "3",
-          details: "Musakhel / موسی خیل",
+          details: "Shair e Mashriq / شاعر مشرق",
           isTrue: false
         },
         {
           id: "4",
-          details: "Quetta / کوئٹہ",
+          details: "Hakeem ul ummat / حکیم الامت",
           isTrue: false
         }
       ]
     },
     {
       id: "5",
-      description: "Which is the smallest river of pakistan?",
-      description2: "پاکستان کا سب سے چھوٹا دریا کون سا ہے؟",
+      description: "Uss Qoum Ko Shamsheer Ki Hajat Nahin Rehti,Ho Jis Ke ______ Ki Khudi Soorat-e-Foulad",
+      description2: "اُس قوم کو شمشیر کی حاجت نہیں رہتی ,ہو جس کے ______ کی خودی صورتِ فولاد        ",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Jehlum / دریائے جہلم",
-          isTrue: false
+          details: "Jawanon / جوانوں",
+          isTrue: true
         },
         {
           id: "2",
-          details: "Sutlej / دریائے ستلج",
+          details: "Buzurgon / بزرگوں",
           isTrue: false
         },
         {
           id: "3",
-          details: "Ravi / دریائے راوی",
-          isTrue: true
+          details: "Bachon / بچوں",
+          isTrue: false
         },
         {
           id: "4",
-          details: "Chenab / دریائے چناب",
+          details: "Nojawanon / نوجوانوں",
           isTrue: false
         }
       ]
     },
     {
       id: "6",
-      description: "In which year, Pakistan was champion in 4 different games?",
-      description2: "پاکستان کس سال 4 مختلف کھیلوں میں عالمی چیمپیئن تھا؟",
+      description: "Dil pak nhi tou pak ho sakta nhi insan, warna ______ ko bhi aatay thay wuzu k faraaiz bohot",
+      description2: "دل پاک نہیں تو پاک ہو سکتا نہیں انساں, ورنہ  ___ کو بھی آتے تھے وضو کے فرائض بہت",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "1992 / ۱۹۹۲",
+          details: "Shaitan / شیطان",
           isTrue: false
         },
         {
           id: "2",
-          details: "1993 / ۱۹۹۳",
-          isTrue: false
-        },
-        {
-          id: "3",
-          details: "1994 / ۱۹۹۴",
+          details: "Iblees / ابلیس",
           isTrue: true
         },
         {
+          id: "3",
+          details: "Munafiq / منافق",
+          isTrue: false
+        },
+        {
           id: "4",
-          details: "1995 / ۱۹۹۵",
+          details: "Kafir / کافر",
           isTrue: false
         }
       ]
     },
     {
       id: "7",
-      description: "Who had the shortest tenure as President of Pakistan?",
-      description2:
-        "پاکستان کے صدر کی حیثیت سے سب سے کم دور حکومت کس کے پاس رہی؟",
+      description: "Tere Ilm-O-Mohabbat Ki Nahin Hai Intaha Koi, Nahin Hai Tujh Se Barh Kar Saaz-E-Fitrat Mein Nawa Koi --- Is shair me Allama Iqbal ne kisay mukhatib kya hay?",
+      description2: "ترے علم و محبّت کی نہیں ہے انتہا کوئی , نہیں ہے تجھ سے بڑھ کر سازِ فطرت میں نَوا کوئی--- اس شعر میں علامہ اقبال نے کسے مخاطب کیا ہے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Iskander Mirza / اسکندر مرزا",
+          details: "Nojawan / نوجوان",
           isTrue: false
         },
         {
           id: "2",
-          details: "Zulfiqar Ali Bhutto / ذُوالفِقار علی بُھٹّو‎‎",
-          isTrue: true
-        },
-        {
-          id: "3",
-          details: "Yahya Khan / محمد یحییٰ خان",
+          details: "Hind k musalman / ہند کے مسلمان",
           isTrue: false
         },
         {
+          id: "3",
+          details: "Musalman / مسلمان",
+          isTrue: true
+        },
+        {
           id: "4",
-          details: "Sheikh Rasheed / شیخ رشید",
+          details: "None of These / ان میں سے کوئی نہیں",
           isTrue: false
         }
       ]
     },
     {
       id: "8",
-      description: "Who wrote the national anthem of Pakistan?",
-      description2: "پاکستان کا قومی ترانہ کس نے لکھا؟",
+      description: "Nahin Hai Cheez Nakami Koi Zamane Mein, Koi Bura Nahin Qudrat Ke Karkhane Mein --- Ye shair Allama Iqbal ki kis kitab me mojood hay.",
+      description2: "نہيں ہے چيز نکمی کوئی زمانے ميں, کوئی برا نہيں قدرت کے کارخانے ميں--- یہ شعر علامہ اقبال کی کس کتاب میں موجود ہے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Mohammad Hafeez / محمد حفیظ",
-          isTrue: false
+          details: "Bang e dara / بانگ درا",
+          isTrue: true
         },
         {
           id: "2",
-          details: "Khattal Hafeez / خطال حفیظ",
+          details: "Shikwah / شکوہ",
           isTrue: false
         },
         {
           id: "3",
-          details: "Hafeez Jalandhari / حفیظ جالندھری",
-          isTrue: true
+          details: "Jawab e Shikwah / جواب شکوہ",
+          isTrue: false
         },
         {
           id: "4",
-          details: "Koteshwer Hafeez / کوٹیشور حفیظ",
+          details: "Zarb e Kalim / ضرب کلیم",
           isTrue: false
         }
       ]
@@ -233,57 +232,57 @@ export const data = {
     {
       id: "9",
       description:
-        "Which of the following countries is not bordered by Pakistan?",
+        "Koi Andaza Karsakta Hai Is Ke Zor Baazu Ka, Nigahe Mrd _____ Se Badal Jati Hain Takdire",
       description2:
-        "مندرجہ ذیل ممالک میں سے کون سے ملک کی سرحد پاکستان کی سرحد سے متصل نہیں ہے؟",
+        "کوئی اندازہ کرسکتا ہے اس کے زورِ بازو کا,نگاہِ مردِ _____ سے بدل جاتی ہیں تقدیریں",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Bangladesh / بنگلہ دیش",
-          isTrue: true
+          details: "Musalman / مسلمان",
+          isTrue: false
         },
         {
           id: "2",
-          details: "India / ہندوستان",
+          details: "Khudi / خودی",
           isTrue: false
         },
         {
           id: "3",
-          details: "Afghanistan / افغانستان",
+          details: "Mohsin / محسن",
           isTrue: false
         },
         {
           id: "4",
-          details: "China / چین",
-          isTrue: false
+          details: "Momin / مومن",
+          isTrue: true
         }
       ]
     },
     {
       id: "10",
-      description: "Which tree is the national tree of Pakistan?",
-      description2: "پاکستان کا قومی درخت کونسا ہے؟",
+      description: "Tujhe Aaba Se Apne Koi Nisbat Ho Nahin Sakti, Ke Tu Guftar Woh Kirdar, Tu Sabit Woh Sayyara --- Is Shair me Sabit se Kya muraad hay?",
+      description2: "تجھے آبا سے اپنے کوئی نسبت ہو نہیں سکتی , کہ تو گفتار، وہ کردار، تو ثابت، وہ سیّارا --- اس شعر میں ثابت سے کیامراد ہے؟",
       timer: 20.0,
       answer: [
         {
           id: "1",
-          details: "Neem / نیم",
-          isTrue: false
+          details: "Ghr per baithna / گھر پر بیٹھنا",
+          isTrue: true
         },
         {
           id: "2",
-          details: "Sheeshum / شیشم",
+          details: "Ghoomna / گھومنا",
           isTrue: false
         },
         {
           id: "3",
-          details: "Diyodar / دیودار",
-          isTrue: true
+          details: "Kuch kaam krna / کچھ کام کرنا",
+          isTrue: false
         },
         {
           id: "4",
-          details: "Date Palm / کھجور کا درخت",
+          details: "None of These / ان میں سے کوئی نہیں",
           isTrue: false
         }
       ]
