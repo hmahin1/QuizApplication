@@ -264,7 +264,7 @@ const Answers = ({
                 variant="contained"
                 color="primary"
               >
-                {showAnswer ? 'Hide Answer -' + showAnswer : 'Show Answer -' + showAnswer}
+                {'Show Answer -' + showAnswer}
               </Button>
             </div>
             <div style={{ marginTop: '15px' }}>
