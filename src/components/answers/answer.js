@@ -240,6 +240,10 @@ const Answers = ({
         <Option index={3} />
       </div>
 
+{!isAdmin && <div className="answer_container">
+{showAnswer ? 'Hide Answer -' + showAnswer : 'Show Answer -' + showAnswer}
+
+</div>}
       {isAdmin && (
         <>
           <div className="answer_container">
@@ -260,7 +264,7 @@ const Answers = ({
                 variant="contained"
                 color="primary"
               >
-                {showAnswer ? 'Hide Answer' : 'Show Answer'}
+                {showAnswer ? 'Hide Answer -' + showAnswer : 'Show Answer -' + showAnswer}
               </Button>
             </div>
             <div style={{ marginTop: '15px' }}>
