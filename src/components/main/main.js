@@ -45,7 +45,7 @@ const Main = ({ isLoggedIn, user, appState, userResult, showAnswer, error }) => 
             {user.role === "user" &&
             <>
               <span align="left" className="main_score">
-                Score: {userResult.score}
+                Time: {userResult.score}
               </span>
 
               <span align="left" className="main_rank">

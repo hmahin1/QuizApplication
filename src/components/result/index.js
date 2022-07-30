@@ -128,7 +128,7 @@ const Result = props => {
       ) : (
         !props.appState.showResult && (
           <p style={{ marginTop: 10, fontSize: 12 }}>
-            Top 15 Results will be shown after each category
+            {props.limit == 50 ? 'Top 50 Results will be shown ': 'Top 15 Results will be shown after each category'}
           </p>
         )
       )}
