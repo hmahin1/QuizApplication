@@ -1,7 +1,7 @@
 {
   "name": "mastermind",
   "version": "0.2.0",
-  "homepage": "https://mohammad-safwan.github.io/mastermind",
+  "homepage": "https://talenthunters-nawait.github.io/mastermind",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
