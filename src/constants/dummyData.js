@@ -4,7 +4,7 @@ export const data = {
 			id: "1",
 			description:
 				"The last book of Allama Iqbal published after his death was",
-			description2: "علامہ اقبال کی آخری کتاب جو ان کی وفات کے بعد شائع ہوئ:۔",
+			description2: "علامہ اقبال کی آخری کتاب جو ان کی وفات کے بعد شائع ہوئ",
 			timer: 20.0,
 			answer: [
 				{
@@ -64,7 +64,7 @@ export const data = {
 			description:
 				"misl-e-kalīm ho agar mārka aazmā koī, ab bhī daraḳht-e-tūr se aatī hai bāñg-e-lā-taḳhaf --- Is shair me Kis soorah ki taraf ishara kya gaya hay?",
 			description2:
-				"مثل کلیم ہو اگر معرکہ آزما کؤی ، اب بھی درخت طور سے اتی ہے بانگ لا تخف --- اس شعر میں کس سورۃ کی طرف اشارہ کیا گیا ہے؟",
+				"مثل کلیم ہو اگر معرکہ آزما کؤی ، اب بھی درخت طور سے آتی ہے بانگ لا تخف --- اس شعر میں کس سورۃ کی طرف اشارہ کیا گیا ہے؟",
 			timer: 20.0,
 			answer: [
 				{
@@ -121,9 +121,9 @@ export const data = {
 		{
 			id: "5",
 			description:
-				"Uss Qoum Ko Shamsheer Ki Hajat Nahin Rehti,Ho Jis Ke ______ Ki Khudi Soorat-e-Foulad",
+				"Uss Qoum Ko Shamsheer Ki Hajat Nahin Rehti - Ho Jis Ke ______ Ki Khudi Soorat-e-Foulad",
 			description2:
-				"اُس قوم کو شمشیر کی حاجت نہیں رہتی ,ہو جس کے ______ کی خودی صورتِ فولاد        ",
+				"اُس قوم کو شمشیر کی حاجت نہیں رہتی - ہو جس کے ______ کی خودی صورتِ فولاد        ",
 			timer: 20.0,
 			answer: [
 				{
@@ -278,7 +278,7 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "Ghr per baithna / گھر پر بیٹھنا",
+					details: "Ghar per baithna / گھر پر بیٹھنا",
 					isTrue: true,
 				},
 				{
@@ -302,19 +302,19 @@ export const data = {
 		{
 			id: "11",
 			description:
-				"When Hazrat Umar R.A reached Bait ul Muqaddas, he collected the keys from the head of?",
+				"When Hazrat Umar (R.A) reached Bait ul Muqaddas, he collected the keys from the head of?",
 			description2:
 				" جب حضرت عمر رضی اللہ عنہ بیت المقدس پہنچے, تو انہوں نے ____ کے سربراہ سے چابیاں حاصل کیں  ",
 			timer: 20,
 			answer: [
 				{
 					id: "1",
-					details: "Byzantine empireRoman empire / بازنطینی سلطنت",
+					details: "Byzantine empire / بازنطینی سلطنت",
 					isTrue: true,
 				},
 				{
 					id: "2",
-					details: "undefined / رومی سلطنت",
+					details: "Roman empire / رومی سلطنت",
 					isTrue: false,
 				},
 				{
@@ -332,9 +332,9 @@ export const data = {
 		{
 			id: "12",
 			description:
-				"During the famine, When someone offered __ to Hazrat Umar (R.A), he refused",
+				"During the famine, when someone offered __ to Hazrat Umar (R.A), he refused",
 			description2:
-				"قحط کے دوران جب کسی نے حضرت عمر رضی اللہ عنہ کو __ پیش کیا تو انہوں نے انکار کردیا-",
+				"قحط کے دوران جب کسی نے حضرت عمر رضی اللہ عنہ کو __ پیش کیا تو انہوں نے انکار کردیا",
 			timer: 20,
 			answer: [
 				{
@@ -362,9 +362,9 @@ export const data = {
 		{
 			id: "13",
 			description:
-				"Hazrat Umar dismissed ___ from his leadership because people started to believe that victory comes from him ",
+				"Hazrat Umar (R.A) dismissed ___ from his leadership because people started to believe that victory comes from him ",
 			description2:
-				"حضرت عمر نے ___ کو اپنی قیادت سے برطرف کردیا کیونکہ لوگ یہ ماننے لگے تھے کہ فتح اسی کی طرف سے آتی ہے۔",
+				"حضرت عمر نے ___ کو انکی قیادت سے برطرف کردیا کیونکہ لوگ یہ ماننے لگے تھے کہ فتح انکی طرف سے آتی ہے۔",
 			timer: 20,
 			answer: [
 				{
@@ -425,9 +425,9 @@ export const data = {
 		{
 			id: "15",
 			description:
-				"You (R.A) were in bed with the pain of thrusting a poisoned dagger. A boy came to meet you and praised you. What did you say to him?",
+				"Hazrat Umar (R.A) were in bed with the pain of thrusting a poisoned dagger. A boy came to meet him and praised him. What did Hazrat Umar (R.A) say to him?",
 			description2:
-				"زہر بھرا خنجر لگنے کی تکلیف سے آپ جب بستر پر تھے. ایک لڑکا اپ سے ملکت کو آیا ور آپکی تعریف کی. آپ نے اسے کیا کہا ؟",
+				"زہر بھرا خنجر لگنے کی تکلیف سے آپ جب بستر پر تھے. ایک لڑکا اپ سے ملاقات کو آیا ور آپکی تعریف کی. آپ نے اسے کیا کہا ؟",
 			timer: 20,
 			answer: [
 				{
@@ -443,7 +443,7 @@ export const data = {
 				{
 					id: "3",
 					details:
-						"To bring your garment above ankles / اپنے تہبند کو ٹخنو سے اپر کرنا",
+						"To bring your garment above ankles / اپنے تہبند کو ٹخنوں سے اوپر کرنا",
 					isTrue: true,
 				},
 				{
@@ -456,7 +456,7 @@ export const data = {
 		{
 			id: "16",
 			description:
-				" When you left for Hajj, which companion made a great feast whose vessel was difficult for 4 people to carry?",
+				" When Hazrat Umar (R.A) left for Hajj, which companion made a great feast whose vessel was difficult for 4 people to carry?",
 			description2:
 				"جب آپ حج کے لیے روانہ ہوئے تو کس صحابی نے بہت بڑی دعوت کی جس کا برتن 4 لوگوں کے لیے اٹھانا مشکل تھا؟",
 			timer: 20,
@@ -475,32 +475,32 @@ export const data = {
 				},
 				{
 					id: "3",
-					details: "Hazrat Khubaib Razi (R.A) / حضرت خبیب رضی اللھ عنہ",
+					details: "Hazrat Khubaib (R.A) / حضرت خبیب رضی اللھ عنہ",
 					isTrue: false,
 				},
 				{
 					id: "4",
 					details:
-						"Hazrat Zaid bin sabit (R.A) /  \tحضرت زید بن ثابت رضی اللھ عنہ",
+						"Hazrat Zaid bin sabit (R.A) / حضرت زید بن ثابت رضی اللھ عنہ",
 					isTrue: false,
 				},
 			],
 		},
 		{
 			id: "17",
-			description: "At what times did the Qur'an confirm your intention?",
-			description2: "آپ ک ارادے کی تائد قرآن نے کن موقو پر کی؟",
+			description: "At what times did the Qur'an confirm your intention(s) ?",
+			description2: "آپ کے ارادے کی تائید قرآن نے کن مواقع پر کی؟",
 			timer: 20,
 			answer: [
 				{
 					id: "1",
 					details:
-						"Covering (Pardah) of Ummahat ul Momineen / امھات المؤمنین کا پردہ",
+						"Covering (Pardah) of Ummahat ul Momineen / امہات المؤمنین کا پردہ",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "Killing the prisoners / قیدیو کو قتل",
+					details: "Killing the prisoners / قیدیوں کو قتل",
 					isTrue: false,
 				},
 				{
@@ -518,9 +518,9 @@ export const data = {
 		{
 			id: "18",
 			description:
-				"Who wants his mother to lose him, his children to become an orphan or his wife a widow, let him compete me from Haram to Bihar Valley. On what occasion did you say this?",
+				"Who wants his mother to lose him, his children to become an orphan or his wife a widow, let him compete me from Haram to Bihar Valley. On what occasion did Hazrat Umar (R.A) say this?",
 			description2:
-				"جو چاہتا ہے کہ اس کی ماں اسے کھو دے، اس کے بچے یتیم ہو جاے، یا اسكى بیوی بیوہ ہو جاے ، وہ حرم سےباهر وادی مىں مجھ سے مقابلہ كرے ۔ آپ نے یہ کس موقع پر کہا؟",
+				"جو چاہتا ہے کہ اس کی ماں اسے کھو دے، اس کے بچے یتیم ہو جائیں، یا اسكى بیوی بیوہ ہو جاے ، وہ حرم سے بہار وادی میں مجھ سے مقابلہ كرے ۔ آپ نے یہ کس موقع پر کہا؟",
 			timer: 20,
 			answer: [
 				{
@@ -548,15 +548,15 @@ export const data = {
 		{
 			id: "19",
 			description:
-				"To which companion did you say that if this hadith is wrong, then I will be strict.",
+				"To which companion did Hazrat Umar (R.A) say that if this hadith is wrong, then I will be strict.",
 			description2:
-				"آپ نے کس صحابی سے کہا تھا کے آگر یہ روائت غھلت ہوئی تو میں سختی  برتون گا؟",
+				"آپ نے کس صحابی سے کہا تھا کے اگر یہ روایت غلط ہوئی تو میں سختی  برتوں گا",
 			timer: 20,
 			answer: [
 				{
 					id: "1",
 					details:
-						"Hazrat Abdullah Bin Umer (R.A) / حضرت عبدللہ بن امر رضی اللھ عنہ",
+						"Hazrat Abdullah Bin Umer (R.A) / حضرت عبداللہ بن عمر رضی اللھ عنہ",
 					isTrue: false,
 				},
 				{
@@ -568,7 +568,7 @@ export const data = {
 				{
 					id: "3",
 					details:
-						"Hazrat Mughaira Bin Shabah (R.A) / حضرت مغیرہ بن شبہ رضی اللھ عنہ",
+						"Hazrat Mughira Bin Shabah (R.A) / حضرت مغیرہ بن شبہ رضی اللھ عنہ",
 					isTrue: false,
 				},
 				{
@@ -581,9 +581,9 @@ export const data = {
 		{
 			id: "20",
 			description:
-				"What was your reply when the servant asked him to pick up the food box for the old woman?",
+				"What was Hazrat Umar's (R.A) reply when the servant offered to pick up the food box for the old woman?",
 			description2:
-				"جب خادم نے بوڑھی عورت کے لیے کھانے کا سامان اٹھانے کا کہا تو آپ کا کیا جواب تھا؟",
+				"جب خادم نے بوڑھی عورت کے لئیے کھانے کا سامان خود اٹھانے کی پیشکش کی، تو آپ نے کیا کہا؟",
 			timer: 20,
 			answer: [
 				{
@@ -605,7 +605,7 @@ export const data = {
 				{
 					id: "4",
 					details:
-						"Will you pick up my burden on the Day of Resurrection? / تم قیامت کے دن میرا بوجھ اٹھاؤ گے",
+						"Will you pick up my burden on the Day of Resurrection? /  کیا تم قیامت کے دن میرا بوجھ اٹھاؤ گے",
 					isTrue: true,
 				},
 			],
@@ -615,8 +615,8 @@ export const data = {
 			id: "21",
 			description:
 				"What number is one quarter of one tenth of one fifth of 200?",
-			description2: "200 کے پانچویں کے دسویں حصے کا ایک چوتھائی نمبر کیا ہے؟",
-			timer: 20,
+			description2: "دو سو  کا ایک چوتھائی حصے کے دسویں حصے کا پانچواں حصہ کونسا ہندسہ ہے؟",
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -645,8 +645,8 @@ export const data = {
 			description:
 				"The mystery number is between 60 and 150, a multiple of 7, and the sum of its digits is 10. What is the mystery number?",
 			description2:
-				"خفیہ ہندسہ 60 اور 150 کے درمیان ہے، 7 کا ضرب، اور اس کے ہندسوں کا مجموعہ 10 ہے۔ خفیہ ہندسہ کیا ہے؟",
-			timer: 20,
+				"خفیہ ہندسہ 60 اور 150 کے درمیان ہے، 7 کا ضرب، اور اس کے انفرادی ہندسوں کا مجموعہ 10 ہے۔ خفیہ ہندسہ کیا ہے؟",
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -673,10 +673,10 @@ export const data = {
 		{
 			id: "23",
 			description:
-				"6. An electric train is traveling South at 60mph. The wind is blowing from the North at 10mph. Which direction is the smoke blowing? ",
+				"An electric train is traveling South at 60mph. The wind is blowing from the North at 10mph. Which direction is the smoke blowing? ",
 			description2:
-				"ایک الیکٹرک ٹرین 60 میل فی گھنٹہ کی رفتار سے جنوب میں سفر کر رہی ہے۔ شمال سے 10 میل فی گھنٹہ کی رفتار سے ہوا چل رہی ہے۔ دھواں کس طرف اُڑ رہا ہے؟",
-			timer: 20,
+				"ایک الیکٹرک ٹرین 60 میل فی گھنٹہ کی رفتار سے جنوب کی طرف سفر کر رہی ہے۔ شمال سے 10 میل فی گھنٹہ کی رفتار سے ہوا چل رہی ہے۔ دھواں کس طرف اُڑ رہا ہے؟",
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -706,7 +706,7 @@ export const data = {
 				"The day after the day after tomorrow is four days before Monday. What day is it today?",
 			description2:
 				"پرسوں کے بعد والا دن پیر سے چار دن پہلے ہے۔ آج کون سا دن ہے؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -735,8 +735,8 @@ export const data = {
 			description:
 				"A man has certain number of cows and birds. They have 172 eyes and 344 legs. How many cows and birds does he have? ",
 			description2:
-				"ایک آدمی کے پاس گائے اور پرندوں کی ایک خاص تعداد ہوتی ہے۔ ان کی 172 آنکھیں اور 344 ٹانگیں ہیں۔ اس کے پاس کتنی گائیں اور پرندے ہیں؟",
-			timer: 20,
+				"ایک آدمی کے پاس گائے اور پرندوں کی ایک خاص تعداد ہے۔ ان کی 172 آنکھیں اور 344 ٹانگیں ہیں۔ اس کے پاس کتنی گائیں اور پرندے ہیں؟",
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -766,7 +766,7 @@ export const data = {
 				"A person has 14 red socks and 14 white socks in a drawer. What is the maximum number of socks that he should take to get a correct pair?",
 			description2:
 				"ایک شخص کے پاس دراز میں 14 سرخ موزے اور 14 سفید موزے ہیں۔ صحیح جوڑا حاصل کرنے کے لیے اسے زیادہ سے زیادہ کتنی موزے لینا چاہیے؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -796,7 +796,7 @@ export const data = {
 				"Who is your uncle (mamu)'s sister's mother-in-law's son's mother-in-law's son?",
 			description2:
 				"آپ کے مامو کی بہن کی ساس کے بیٹے کی ساس کا بیٹا آپ کا کیا لگتا ہے؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -825,7 +825,7 @@ export const data = {
 			description: "I am an odd number, take away letter and I become even?",
 			description2:
 				"میں ایک طاق(odd) عدد ہوں، حرف چھین کر برابر(even) ہو جاتا ہوں؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -855,7 +855,7 @@ export const data = {
 				"A man is looking at a photograph of someone. His friend asks who it is. The man replies that man’s father is my father’s son.” Who was in the photograph?",
 			description2:
 				"ایک آدمی کسی کی تصویر دیکھ رہا ہے۔ اس کا دوست پوچھتا ہے کہ یہ کون ہے؟ آدمی جواب دیتا ہے کہ آدمی کا باپ میرے باپ کا بیٹا ہے۔ تصویر میں کون تھا؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -885,7 +885,7 @@ export const data = {
 				"As I was going to Lahore, I met a man with seven wives. Each wife had seven sacks. How many people were going to Lahore?",
 			description2:
 				"جب میں لاہور جا رہا تھا۔ میں ایک آدمی سے ملا جس کی سات بیویاں تھیں۔ ہر بیوی کے پاس سات بورے تھے۔ کتنے لوگ لاہور جا رہے تھے؟",
-			timer: 20,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
