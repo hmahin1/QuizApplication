@@ -822,29 +822,29 @@ export const data = {
 		},
 		{
 			id: "28",
-			description: "I am an odd number, take away letter and I become even?",
+			description: "Suppose 8 monkeys take 8 minutes to eat 8 bananas. How many minutes 3 monkeys will take to eat 3 bananas?",
 			description2:
-				"میں ایک طاق(odd) عدد ہوں، حرف چھین کر برابر(even) ہو جاتا ہوں؟",
+				"فرض کریں کہ 8 بندروں کو 8 کیلے کھانے میں 8 منٹ لگتے ہیں۔ 3 بندروں کو 3 کیلے کھانے میں کتنے منٹ لگیں گے؟",
 			timer: 30,
 			answer: [
 				{
 					id: "1",
-					details: "3 / 3",
+					details: "6",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "5 / 5",
+					details: "7",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "7 / 7",
+					details: "8",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "9 / 9",
+					details: "9",
 					isTrue: false,
 				},
 			],
@@ -927,7 +927,7 @@ export const data = {
 				},
 				{
 					id: "3",
-					details: "Harda Mahin / ہردا ماح",
+					details: "Harda Mahin / ہردا ماحٍ",
 					isTrue: false,
 				},
 				{
@@ -968,29 +968,29 @@ export const data = {
 		},
 		{
 			id: "33",
-			description: "How many Masajids and Wells are build by Al Fajar Youth Wing?",
-			description2: "الفجر یوتھ ونگ کی جانب سے کتنی مساجد اور کنویں تعمیر کیے گئے؟ ",
+			description: "How many Masajids are build by Al Fajar Youth Wing?",
+			description2: "الفجر یوتھ ونگ کی جانب سے کتنی مساجد تعمیر کیے گئے؟ ",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "4 Masajid, 30-35 wells /  مساجد 4 ، 30-35 کنویں ",
-					isTrue: false,
+					details: "4",
+					isTrue: true,
 				},
 				{
 					id: "2",
-					details: "3 Masajid, 25-30 wells /  مساجد 3، 25-30 کنویں",
+					details: "3",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: " 3 Masajid, 30-35 wells /  مساجد 3، 30-35 کنویں ",
+					details: "2",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "4 Masajid, 25-30wells /  مساجد 4، 25-30 کنویں",
-					isTrue: true,
+					details: "1",
+					isTrue: false,
 				},
 			],
 		},
@@ -1027,7 +1027,7 @@ export const data = {
 		{
 			id: "35",
 			description:
-				"Who created football poster for most popular Old Trafford football stadium?",
+				"Who created football poster for most popular football stadium Old Trafford ?",
 			description2:
 				" سب سے مشہور اولڈ ٹریفورڈ فٹ بال اسٹیڈیم کے لیے فٹ بال کا پوسٹر کس نے بنایا؟",
 			timer: 20.0,
@@ -1092,7 +1092,7 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "Harda Mahin / ہردا ماح",
+					details: "Harda Mahin / ہردا ماحٍ",
 					isTrue: false,
 				},
 				{
@@ -1114,7 +1114,7 @@ export const data = {
 		},
 		{
 			id: "38",
-			description: "How many are events organised by Talent Hunters including Mastermind 2?",
+			description: "How many events are organised by Talent Hunters including Mastermind 2?",
 			description2: "ٹیلنٹ ہنٹرز کی طرف سے ماسٹر مائنڈ 2 سمیت کتنے ایونٹس منعقد کیے گئے ہیں؟",
 			timer: 20.0,
 			answer: [
@@ -1143,8 +1143,8 @@ export const data = {
 		{
 			id: "39",
 			description:
-				'Who secured top position in Pakistan in ACCA Couse MA2?',
-			description2: "ACCA Couse MA2 میں پاکستان میں ٹاپ پوزیشن کس نے حاصل کی؟",
+				'Who secured top position in Pakistan in ACCA Course MA2?',
+			description2: "میں کس  نوجوان نے پورے پاکستان میں اوّل پوزیشن حاصل کی (ACCA Course MA2)",
 			timer: 20.0,
 			answer: [
 				{
