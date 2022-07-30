@@ -73,7 +73,7 @@ class App extends Component {
           <div className="logo_text_container">
             <img className="logo_image" src={logo} alt="logo" />
             <span className="text_heading">
-              <span className="text_heading_sub">Presents (Beta 1.1)</span>
+              <span className="text_heading_sub">Presents</span>
               <br />
               <span className="text_heading_sub_main"><img className="nm_image" src={mastermind2} alt="mastermind2" /></span>
             </span>

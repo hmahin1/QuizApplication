@@ -911,28 +911,28 @@ export const data = {
 		},
 		{
 			id: "31",
-			description: "Which indian village do we originate from?",
-			description2: "ہندوستان میں ہمارے گاؤں کا کیا نام ہے؟",
+			description: "Who created Aameen App?",
+			description2: "آمین ایپ کس نے بنائی؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "Bhatkal /  بھٹکل",
-					isTrue: false,
-				},
-				{
-					id: "2",
-					details: "Murdeshwar / مرڈیشور",
+					details: "Khattal Safwan /  خطال صفوان",
 					isTrue: true,
 				},
 				{
+					id: "2",
+					details: "Bidchol Hamza / بڈچول حمزہ",
+					isTrue: false,
+				},
+				{
 					id: "3",
-					details: "Manke / منکے",
+					details: "Harda Mahin / ہردا ماح",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "Karnatak / کرناٹک",
+					details: "Bidchol Hassan / بڈچول حسان",
 					isTrue: false,
 				},
 			],
@@ -940,202 +940,202 @@ export const data = {
 		{
 			id: "32",
 			description:
-				"Which word is used to describe drawing room in Nawaithy Language?",
-			description2: " ہماری زبان میں ڈرائینگ روم کو کیا کہتے ہیں ؟",
+				"How many Hafiz ul Qur'an are there in Team Talent Hunters?",
+			description2: "ٹیم ٹیلنٹ ہنٹرز میں کتنے حافظ القرآن ہیں؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "Kholli / کھولی",
+					details: "1 / 1",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "Wasro /وسرو",
-					isTrue: true,
-				},
-				{
-					id: "3",
-					details: "kamra /کمرہ",
+					details: "2 /2",
 					isTrue: false,
 				},
 				{
+					id: "3",
+					details: "3 /3",
+					isTrue: true,
+				},
+				{
 					id: "4",
-					details: "doni /ڈونی",
+					details: "4 /4",
 					isTrue: false,
 				},
 			],
 		},
 		{
 			id: "33",
-			description: "Who was the first president of Nawait Jamiat ul Muslimeen?",
-			description2: " ہماری جمیعت کے پہلے صدر کا کیا نام تھا؟ ",
+			description: "How many Masajids and Wells are build by Al Fajar Youth Wing?",
+			description2: "الفجر یوتھ ونگ کی جانب سے کتنی مساجد اور کنویں تعمیر کیے گئے؟ ",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "Hegdey Shareef Shahul Hameed / ھیگڑے شریف شاہ الحمید ",
+					details: "4 Masajid, 30-35 wells /  مساجد 4 ، 30-35 کنویں ",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "Haji Gawahi Muhiuddin / حاجی گواہی محی الدین",
+					details: "3 Masajid, 25-30 wells /  مساجد 3، 25-30 کنویں",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: " Saifuddin Tahir / سیف الدین طاہر ",
-					isTrue: true,
+					details: " 3 Masajid, 30-35 wells /  مساجد 3، 30-35 کنویں ",
+					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "Khattal Mohammad Sukri / خطال محمد سکری",
-					isTrue: false,
+					details: "4 Masajid, 25-30wells /  مساجد 4، 25-30 کنویں",
+					isTrue: true,
 				},
 			],
 		},
 		{
 			id: "34",
 			description:
-				"Out of below, Bidchol shaikh served as what for Nawait jamat ul muslimeen?",
+				"Who was the special guest of the Golden Jubilee Annual Meeting of the Nawait Jamiat ul Muslimeen?",
 			description2:
-				" بڑچول شیخ  محی الدین صاحب جماعت کے ان میں سے کون سے عہدے پر فائز رہے؟",
+				"نوائط جمعیت المسلمین کی گولڈن جوبلی سالانه جلسه کے مہمان خصوصی کون تھے?",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "General secretary /  جنرل سیکرٹری",
-					isTrue: false,
+					details: "Dhinda Abdul Ghani /  ڈھنڈا عبدالغنی",
+					isTrue: true,
 				},
 				{
 					id: "2",
-					details: "Accountant / محاسب",
+					details: "Khattal Zakir Hussain / خطال ذاکر حسین",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "Vise president /نائب صدر",
+					details: "Harda Ahmed / ہردا احمد",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "All of above / اُپر دیئے ہوئے تمام جوابات",
-					isTrue: true,
+					details: "Bidchol Nazeer / بڈچول نذیر",
+					isTrue: false,
 				},
 			],
 		},
 		{
 			id: "35",
 			description:
-				"Who has won the gold medal among below in sir Syed university?",
+				"Who created football poster for most popular Old Trafford football stadium?",
 			description2:
-				" وہ کون سی شخصیت ہیں جنہیں سر سید یونیورسٹی میں گولڈ میڈل سے نوازا گیا؟",
+				" سب سے مشہور اولڈ ٹریفورڈ فٹ بال اسٹیڈیم کے لیے فٹ بال کا پوسٹر کس نے بنایا؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "Khattal imtiaz /خطال امتیاز",
+					details: "Khattal Shuraim / خطال شریم",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "Khattal farrukh /خطال فرخ",
-					isTrue: true,
+					details: "Harda Imtisal / ہردا امتسال",
+					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "Khattal Daniyal /خطال دانیال",
+					details: "Gaima Hubli Sameed / گیما ہبلی سمید",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "Durgaah nabigh /درگاہ نبیغ",
-					isTrue: false,
+					details: "Dhinda Saad / ڈھنڈا سعد",
+					isTrue: true,
 				},
 			],
 		},
 		{
 			id: "36",
 			description:
-				"How many people have been burried in Moach goth (Al Nawait graveyard)?",
-			description2: "مواچھ گوٹھ النوائط قبرستان کے قبرستان میں کتنی قبر ہے؟",
+				"How many participants participated in Saut ul Qur'an organized in Masjid e Rehman?",
+			description2: "مسجد رحمان میں منعقد کیے گئے صوت القرآن میں کتنے شرکاء نے شرکت کی؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "60-64",
-					isTrue: true,
+					details: "100+",
+					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "55-59",
+					details: "150+",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "65-69",
+					details: "175+",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "70-74",
-					isTrue: false,
+					details: "200+",
+					isTrue: true,
 				},
 			],
 		},
 		{
 			id: "37",
-			description: "When was the first prayer offered in Masjid-e-Rehman?",
+			description: "Youngest member of Nawait Jamiat ul Muslimeen committe since 2000?",
 			description2:
-				" نوائط کی پہلی مسجد - مسجدِ الرحمن میں پہلی نماز کب آدا کی گئی؟",
+				"نوائط جمعیت المسلمین کے سال 2000 کے بعد سب سے کم عمر رکن؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "1 ramadan 2014",
-					isTrue: true,
-				},
-				{
-					id: "2",
-					details: "1 ramadan 2015",
+					details: "Harda Mahin / ہردا ماح",
 					isTrue: false,
 				},
 				{
+					id: "2",
+					details: "Bidchol Kumail / بڈچول کمیل",
+					isTrue: true,
+				},
+				{
 					id: "3",
-					details: "1 ramadan 2016",
+					details: "Dabapu Fowzan / داباپو فوزان",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "1 ramadan 2017",
+					details: "Sunny Adnan  / سنی عدنان",
 					isTrue: false,
 				},
 			],
 		},
 		{
 			id: "38",
-			description: "When was TH (Talent Hunters) formed?",
-			description2: "ٹیلنٹ ہنٹرس کب تشکیل ہوئی؟",
+			description: "How many are events organised by Talent Hunters including Mastermind 2?",
+			description2: "ٹیلنٹ ہنٹرز کی طرف سے ماسٹر مائنڈ 2 سمیت کتنے ایونٹس منعقد کیے گئے ہیں؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "2016",
+					details: "13",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "2017",
+					details: "15",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "2018",
+					details: "17",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "2019",
+					details: "19",
 					isTrue: false,
 				},
 			],
@@ -1143,28 +1143,28 @@ export const data = {
 		{
 			id: "39",
 			description:
-				'Who is the poet of the poem "Chalye jamat k sath sath chalye"?',
-			description2: "چلیے جماعت کے ساتھ چلیے یہ نظم کس نے لکھی ہے؟",
+				'Who secured top position in Pakistan in ACCA Couse MA2?',
+			description2: "ACCA Couse MA2 میں پاکستان میں ٹاپ پوزیشن کس نے حاصل کی؟",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "Kochebapu Samad /کوچے باپو صمد",
+					details: "Kochebapu Alqama / کوچے باپو القمہ",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "Dhinda Mehmood / ڈھنڈا محمود",
-					isTrue: false,
-				},
-				{
-					id: "3",
-					details: "Dhinda Abdul Ghani /ڈھنڈا عبدالغنی",
+					details: "Bidchol Tauheed / بڈچول توحید",
 					isTrue: true,
 				},
 				{
+					id: "3",
+					details: "Dhinda Hunain / ڈھنڈا حنین",
+					isTrue: false,
+				},
+				{
 					id: "4",
-					details: "None of the above  /  کوئی نہیں",
+					details: "Hajiamin Soban  /  حاجی امین ثوبان",
 					isTrue: false,
 				},
 			],
@@ -1172,61 +1172,32 @@ export const data = {
 		{
 			id: "40",
 			description:
-				"For how long has the current president of Nawait Community, Khateeb Hafeez has been associated with nawait Jamiat?",
+				"Who was rewarded permanent membership of Nawait Jamiat ul Muslimeen?",
 			description2:
-				" نوائط کے موجودہ صدر خطیب حفیظ الرحمن کس سال سے نوایت جمیعت کے رُکن ہے؟",
+				" نوائط جمعیت المسلمین کی مستقل رکنیت کس کو دی گئی؟ ",
 			timer: 20.0,
 			answer: [
 				{
 					id: "1",
-					details: "1993",
-					isTrue: true,
-				},
-				{
-					id: "2",
-					details: "1994",
+					details: "Dhinda Muhammad Hussain / ڈھنڈا محمد حسین",
 					isTrue: false,
 				},
 				{
+					id: "2",
+					details: "Bidchol Muhammad Hussain / بڈچول محمد حسین",
+					isTrue: true,
+				},
+				{
 					id: "3",
-					details: "1995",
+					details: "Walki Muhammad Hussain / ولکی محمد حسین",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "1996",
+					details: "Shareef Muhammad Hussain / شریف محمد حسین",
 					isTrue: false,
 				},
 			],
 		},
-		{
-			id: "41",
-			description:
-				"For how long has the current president of Nawait Community, Khateeb Hafeez has been associated with nawait Jamiat?",
-			description2: " نوايت کے موجودہ صدر کس سال سے نوایت جمیعت کے رُکن ہے؟",
-			timer: 20.0,
-			answer: [
-				{
-					id: "1",
-					details: "1993",
-					isTrue: true,
-				},
-				{
-					id: "2",
-					details: "1994",
-					isTrue: false,
-				},
-				{
-					id: "3",
-					details: "1995",
-					isTrue: false,
-				},
-				{
-					id: "4",
-					details: "1996",
-					isTrue: false,
-				},
-			],
-		},
-	],
+	]
 };

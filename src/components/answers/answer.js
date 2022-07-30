@@ -241,8 +241,6 @@ const Answers = ({
       </div>
 
 {!isAdmin && <div className="answer_container">
-{showAnswer ? 'Hide Answer -' + showAnswer : 'Show Answer -' + showAnswer}
-
 </div>}
       {isAdmin && (
         <>

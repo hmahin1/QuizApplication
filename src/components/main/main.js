@@ -18,7 +18,7 @@ const Main = ({ isLoggedIn, user, appState, userResult, showAnswer, error }) => 
   };
   const getCategory = () => {
     if (appState.state < 10) {
-      return "General Knowledge";
+      return "Allama Iqbal";
     } else if (appState.state < 20) {
       return "Islamic";
     } else if (appState.state < 30) {
