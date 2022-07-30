@@ -173,7 +173,7 @@ export const data = {
 				},
 				{
 					id: "4",
-					details: "Kafir / کافر",
+					details: "Zardari / زرداری",
 					isTrue: false,
 				},
 			],
@@ -763,7 +763,7 @@ export const data = {
 		{
 			id: "26",
 			description:
-				"A person has 14 red socks and 14 white socks in a drawer. What is the maximum number of socks that he should take to get a correct pair?",
+				"A person has 14 red socks and 14 white socks in a drawer. What is the minimum number of socks that he should take to get a correct pair?",
 			description2:
 				"ایک شخص کے پاس دراز میں 14 سرخ موزے اور 14 سفید موزے ہیں۔ صحیح جوڑا حاصل کرنے کے لیے اسے زیادہ سے زیادہ کتنی موزے لینا چاہیے؟",
 			timer: 30,
