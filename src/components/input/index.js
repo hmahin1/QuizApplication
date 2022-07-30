@@ -126,6 +126,15 @@ const CustomizedInputs = ({
 
   const startQuiz = () => {
     firebase
+    .database()
+    .ref('answerState')
+    .orderByChild('state')
+    .once('value', (snapshot) => {
+      snapshot.forEach(function (data) {
+        data.ref.set(false)
+      })
+    })
+    firebase
       .database()
       .ref("appState")
       .orderByChild("state")
@@ -135,6 +144,7 @@ const CustomizedInputs = ({
           data.ref.child("timestamp").set(new Date().toISOString());
         });
       });
+    actions.getShowAnswerState();
     actions.startQuiz();
     
   };
