@@ -32,6 +32,7 @@ const Answers = ({
   const [questionStatus, setQuestionStatus] = useState(true)
   const [questionAskedTime, setQuestionAskedTime] = useState(null)
   const [questionNumber, setQuestionNumber] = useState(-1)
+  const [handleVisibility, setHandleVisibility] = useState(true)
   const [manualUpdate, setManualUpdateState] = useState({
     display: false,
     questionNumber: 1,
@@ -40,6 +41,21 @@ const Answers = ({
 
   let milliseconds = 100
   let seconds = 0
+
+  const handleChangeTab = (event) => {
+		if (document.visibilityState == "visible") {
+      setHandleVisibility(true)
+			if (localStorage.getItem("questionNumber") == questionNumber) {
+        setOptionNumberClicked( parseInt(localStorage.getItem("optionNumber")));
+				setQuestionStatus(false);
+				setDuration(0);
+			}
+		} else {
+      setHandleVisibility(false)
+			localStorage.setItem("questionNumber", questionNumber);
+			localStorage.setItem("optionNumber", optionNumberClicked);
+		}
+	}
 
   const correctAnswer = () => {
     const answerTime = +(seconds + '.' + milliseconds)
@@ -63,6 +79,14 @@ const Answers = ({
   const onCompleteTimer = () => {
     setQuestionStatus(false)
   }
+
+  useEffect(() => {
+    window.onbeforeunload = function(event) {
+      localStorage.setItem("questionNumber", questionNumber);
+      localStorage.setItem("optionNumber", optionNumberClicked);
+    };
+    window.addEventListener("visibilitychange", handleChangeTab);
+  }, [questionNumber, optionNumberClicked])
 
   useEffect(() => {
     setOptionNumberClicked(-1)
@@ -93,7 +117,8 @@ const Answers = ({
     if (appState.timestamp !== questionAskedTime) {
       setQuestionAskedTime(appState.timestamp)
       setQuestionNumber(appState.state)
-	    setQuestionStatus(true)
+      if(localStorage.getItem("questionNumber") == appState.state) setQuestionStatus(false)
+      else setQuestionStatus(true)
     }
   }, [appState])
 
@@ -135,7 +160,6 @@ const Answers = ({
       .orderByChild('state')
       .once('value', (snapshot) => {
         snapshot.forEach(function (data) {
-          debugger
           data.ref.child('state').set(updatedQuestionNumber)
           data.ref
             .child('questionStatus')
