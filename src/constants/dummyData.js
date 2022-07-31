@@ -620,22 +620,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "25 / 25",
+					details: "25 / ۲۵",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "5 / 5",
+					details: "5 / ۵",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "1 / 1",
+					details: "1 / ۱",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "10 / 10",
+					details: "10 / ۱۰",
 					isTrue: false,
 				},
 			],
@@ -650,22 +650,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "63 / 63",
+					details: "63 / ۶۳",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "84 / 84",
+					details: "84 / ۸۴",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "82 / 82",
+					details: "82 / ۸۲",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "91 / 91",
+					details: "91 / ۹۱",
 					isTrue: true,
 				},
 			],
@@ -740,22 +740,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "80 / 80",
+					details: "80 / ۸۰",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "86 / 86",
+					details: "86 / ۸۶",
 					isTrue: true,
 				},
 				{
 					id: "3",
-					details: "90 / 90",
+					details: "90 / ۹۰",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "94 / 94",
+					details: "94 / ۹۴",
 					isTrue: false,
 				},
 			],
@@ -765,27 +765,27 @@ export const data = {
 			description:
 				"A person has 14 red socks and 14 white socks in a drawer. What is the minimum number of socks that he should take to get a correct pair?",
 			description2:
-				"ایک شخص کے پاس دراز میں 14 سرخ موزے اور 14 سفید موزے ہیں۔ صحیح جوڑا حاصل کرنے کے لیے اسے زیادہ سے زیادہ کتنی موزے لینا چاہیے؟",
+				"ایک شخص کے پاس دراز میں 14 سرخ موزے اور 14 سفید موزے ہیں۔ صحیح جوڑا حاصل کرنے کے لیے اسے کم سے کم کتنی موزے لینا چاہیے؟",
 			timer: 30,
 			answer: [
 				{
 					id: "1",
-					details: "1 / 1",
+					details: "1 / ۱",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "3 / 3",
+					details: "3 / ۳",
 					isTrue: true,
 				},
 				{
 					id: "3",
-					details: "5 / 5",
+					details: "5 / ۵",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "7 / 7",
+					details: "7 / ۷",
 					isTrue: false,
 				},
 			],
@@ -829,22 +829,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "6",
+					details: "6 / ۶",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "7",
+					details: "7 / ۷",
 					isTrue: false,
 				},
 				{
-					id: "3",
+					id: "3 / ۳",
 					details: "8",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "9",
+					details: "9 / ۹",
 					isTrue: false,
 				},
 			],
@@ -889,22 +889,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "1 / 1",
+					details: "1 / ۱",
 					isTrue: true,
 				},
 				{
 					id: "2",
-					details: "7 / 7",
+					details: "7 / ۷",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "8 / 8",
+					details: "8 / ۸",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "9 / 9",
+					details: "9 / ۹",
 					isTrue: false,
 				},
 			],
@@ -946,22 +946,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "1 / 1",
+					details: "1 / ۱",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "2 /2",
+					details: "2 / ۲",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "3 /3",
+					details: "3 / ۳",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "4 /4",
+					details: "4 / ۴",
 					isTrue: false,
 				},
 			],
@@ -974,22 +974,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "4",
+					details: "4 / ۴",
 					isTrue: true,
 				},
 				{
 					id: "2",
-					details: "3",
+					details: "3 / ۳",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "2",
+					details: "2 / ۲",
 					isTrue: false,
 				},
 				{
 					id: "4",
-					details: "1",
+					details: "1 / ۱",
 					isTrue: false,
 				},
 			],
@@ -1120,22 +1120,22 @@ export const data = {
 			answer: [
 				{
 					id: "1",
-					details: "13",
+					details: "13 / ۱۳",
 					isTrue: false,
 				},
 				{
 					id: "2",
-					details: "15",
+					details: "15 / ۱۵",
 					isTrue: false,
 				},
 				{
 					id: "3",
-					details: "17",
+					details: "17 / ۱۷",
 					isTrue: true,
 				},
 				{
 					id: "4",
-					details: "19",
+					details: "19 / ۱۹",
 					isTrue: false,
 				},
 			],
