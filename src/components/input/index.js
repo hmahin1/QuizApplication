@@ -185,35 +185,69 @@ const CustomizedInputs = ({
               Instructions
             </p>
             <ol className="quiz_start_text_ol" align="left">
-              <li>Each category has 10 questions</li>
+              <li>Each category has 10 questions. <br /> .ہر زمرے میں 10 سوالات ہیں </li> <br />
               <li>
-                Time of each question of General Knowledege, Islamic and Nawait
+                Time of each question of Hazrat Umar (R.A) and Nawait
                 categories is 20 seconds.
+                <br />
+              حضرت عمر رضی اللہ عنہ اور نوائط کے ہر سوال کا وقت 20 سیکنڈ ہے۔
+           
               </li>
-              <li>Time of each question of IQ is 30 seconds.</li>
-              <li>Participant can only answer one question at a time.</li>
-              <li>Participant can not answer after the timer has finished.</li>
+              <br />
+              <li>Time of each question of Allama Iqbal and IQ is 30 seconds.
+             
+              <br />
+              علامہ اقبال اور عقل کے ہر سوال کا وقت 30 سیکنڈ ہے۔
+              </li>
+              <br />
+
+              <li>Participant can only answer one question at a time.
+              <br />
+              شریک ایک وقت میں صرف ایک سوال کا جواب دے سکتا ہے۔
+              </li>
+              <br />
+              <li>Participant can not answer after the timer has finished.
+              <br />
+              ٹائمر ختم ہونے کے بعد شریک جواب نہیں دے سکتا۔
+              </li>
+              <br />
+              <li>Participant can not answer the current question if he/she change the tab or refresh the page
+              <br />
+              شرکت کنندہ موجودہ سوال کا جواب نہیں دے سکتا اگر وہ ٹیب کو تبدیل کرتا ہے یا صفحہ کو ریفریش کرتا ہے۔
+              </li>
+              <br />
               <li>
+                
                 Top 15 participants result will be shown after compeletion of
                 each category.
+                <br />
+                سرفہرست 15 شرکاء کا نتیجہ ہر زمرہ مکمل ہونے کے بعد دکھایا جائے گا۔
+                
               </li>
+              <br />
               <li>
                 Result will be based on two factors. Total Number of true
-                answers and total time
+                answers and total time.
+                <br />
+                نتیجہ دو عوامل پر مبنی ہوگا۔ صحیح جوابات کی کل تعداد اور کل وقت۔
               </li>
+              <br />
               <li>
                 If more than 1 participant has same number of true answers, then
                 result will calculate on total time i.e. the one who answered
                 question in less amount of time.
+                <br />
+                اگر 1 سے زیادہ شرکاء کے صحیح جوابات کی ایک ہی تعداد ہے، تو نتیجہ کل وقت پر حساب کیا جائے گا یعنی جس نے کم وقت میں سوال کا جواب دیا۔
+
               </li>
+              <br />
               <li>
                 Top 50 participants will be shown in the final result after quiz
                 will end.
+                <br />
+                کوئز ختم ہونے کے بعد فائنل رزلٹ میں ٹاپ 50 شرکاء کو دکھایا جائے گا۔
               </li>
-              <li>
-                For privacy, we changed the names of females by their husbands
-                or fathers reference. eg: Umme, Mrs etc.. in the result section
-              </li>
+              <br />
             </ol>
 
             <p align="center" style={{ fontWeight: "bold", fontSize: "25px" }}>

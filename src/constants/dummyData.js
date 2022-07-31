@@ -5,7 +5,7 @@ export const data = {
 			description:
 				"The last book of Allama Iqbal published after his death was",
 			description2: "علامہ اقبال کی آخری کتاب جو ان کی وفات کے بعد شائع ہوئ",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -35,7 +35,7 @@ export const data = {
 				"Hain Log Wohi Jahan Mein Ache, Aate Hain Jo Kaam Dusron Ke --- Ye alfaaz kis ne kahay thay?",
 			description2:
 				"ہيں لوگ وہی جہاں ميں اچھے, آتے ہيں جو کام دُوسرں کے --- یہ الفاظ کس نے کہے تھے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -65,7 +65,7 @@ export const data = {
 				"misl-e-kalīm ho agar mārka aazmā koī, ab bhī daraḳht-e-tūr se aatī hai bāñg-e-lā-taḳhaf --- Is shair me Kis soorah ki taraf ishara kya gaya hay?",
 			description2:
 				"مثل کلیم ہو اگر معرکہ آزما کؤی ، اب بھی درخت طور سے آتی ہے بانگ لا تخف --- اس شعر میں کس سورۃ کی طرف اشارہ کیا گیا ہے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -94,7 +94,7 @@ export const data = {
 			description:
 				"Which one of these is not an honorary name of Allama Iqbal?",
 			description2: "ان میں سے کون سا نام علامہ اقبال کا اعزازی نام نہیں ہے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -124,7 +124,7 @@ export const data = {
 				"Uss Qoum Ko Shamsheer Ki Hajat Nahin Rehti - Ho Jis Ke ______ Ki Khudi Soorat-e-Foulad",
 			description2:
 				"اُس قوم کو شمشیر کی حاجت نہیں رہتی - ہو جس کے ______ کی خودی صورتِ فولاد        ",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -154,7 +154,7 @@ export const data = {
 				"Dil pak nhi tou pak ho sakta nhi insan, warna ______ ko bhi aatay thay wuzu k faraaiz bohot",
 			description2:
 				"دل پاک نہیں تو پاک ہو سکتا نہیں انساں, ورنہ  ___ کو بھی آتے تھے وضو کے فرائض بہت",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -184,7 +184,7 @@ export const data = {
 				"Tere Ilm-O-Mohabbat Ki Nahin Hai Intaha Koi, Nahin Hai Tujh Se Barh Kar Saaz-E-Fitrat Mein Nawa Koi --- Is shair me Allama Iqbal ne kisay mukhatib kya hay?",
 			description2:
 				"ترے علم و محبّت کی نہیں ہے انتہا کوئی , نہیں ہے تجھ سے بڑھ کر سازِ فطرت میں نَوا کوئی--- اس شعر میں علامہ اقبال نے کسے مخاطب کیا ہے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -214,7 +214,7 @@ export const data = {
 				"Nahin Hai Cheez Nakami Koi Zamane Mein, Koi Bura Nahin Qudrat Ke Karkhane Mein --- Ye shair Allama Iqbal ki kis kitab me mojood hay.",
 			description2:
 				"نہيں ہے چيز نکمی کوئی زمانے ميں, کوئی برا نہيں قدرت کے کارخانے ميں--- یہ شعر علامہ اقبال کی کس کتاب میں موجود ہے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -244,7 +244,7 @@ export const data = {
 				"Koi Andaza Karsakta Hai Is Ke Zor Baazu Ka, Nigahe Mrd _____ Se Badal Jati Hain Takdire",
 			description2:
 				"کوئی اندازہ کرسکتا ہے اس کے زورِ بازو کا,نگاہِ مردِ _____ سے بدل جاتی ہیں تقدیریں",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
@@ -274,7 +274,7 @@ export const data = {
 				"Tujhe Aaba Se Apne Koi Nisbat Ho Nahin Sakti, Ke Tu Guftar Woh Kirdar, Tu Sabit Woh Sayyara --- Is Shair me Sabit se Kya muraad hay?",
 			description2:
 				"تجھے آبا سے اپنے کوئی نسبت ہو نہیں سکتی , کہ تو گفتار، وہ کردار، تو ثابت، وہ سیّارا --- اس شعر میں ثابت سے کیامراد ہے؟",
-			timer: 20.0,
+			timer: 30,
 			answer: [
 				{
 					id: "1",
