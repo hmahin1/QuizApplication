@@ -23,8 +23,8 @@ const Main = ({ isLoggedIn, user, appState, userResult, showAnswer, error }) => 
       return "Islamic";
     } else if (appState.state < 30) {
       return "IQ";
-    } else if (appState.state < 40) {
-      return "Nawait";
+    } else if (appState.state < 50) {
+      return "Nawait hello";
     }
   };
   return (
