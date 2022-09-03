@@ -1,7 +1,7 @@
 {
   "name": "mastermind",
-  "version": "0.1.0",
-  "homepage": "http://hamzaahmed95.github.io/mastermind",
+  "version": "0.2.0",
+  "homepage": "https://hmahin1.github.io/QuizApplication",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +46,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.3",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   }

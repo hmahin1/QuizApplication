@@ -1,157 +1,221 @@
-import React, { useState, useEffect } from "react";
-import "./answer.css";
-import CountDownWrapper from "../countdownwrapper/index";
-import Button from "@material-ui/core/Button";
-import { bindActionCreators } from "redux";
-import * as Actions from "../../actions/userActions";
-import { connect } from "react-redux";
-import { data } from "../../constants/dummyData";
-import firebase from "firebase";
+import React, { useState, useEffect } from 'react'
+import './answer.css'
+import CountDownWrapper from '../countdownwrapper/index'
+import Button from '@material-ui/core/Button'
+import { bindActionCreators } from 'redux'
+import * as Actions from '../../actions/userActions'
+import { connect } from 'react-redux'
+import { data } from '../../constants/dummyData'
+import firebase from 'firebase'
+import {
+  Checkbox,
+  CircularProgress,
+  FormControlLabel,
+  FormGroup,
+  Switch,
+  TextField,
+} from '@material-ui/core'
 
-const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
-  const [timer, setTimer] = useState(data.question[appState.state].timer);
-  const [clickable, isClickable] = useState(true);
+const Answers = ({
+  isAdmin,
+  user,
+  appState,
+  userResult,
+  actions,
+  showAnswer,
+}) => {
+  const [timer, setTimer] = useState(data.question[appState.state].timer)
+  const [optionNumberClicked, setOptionNumberClicked] = useState(-1)
   const [duration, setDuration] = useState(
-    data.question[appState.state].timer - 1
-  );
-  const [answerColor1, setAnswerColor1] = useState("purple");
-  const [answerColor2, setAnswerColor2] = useState("purple");
-  const [answerColor3, setAnswerColor3] = useState("purple");
-  const [answerColor4, setAnswerColor4] = useState("purple");
+    data.question[appState.state].timer - 1,
+  )
+  const [questionStatus, setQuestionStatus] = useState(false)
+  const [questionAskedTime, setQuestionAskedTime] = useState(null)
+  const [questionNumber, setQuestionNumber] = useState(-1)
+  const [manualUpdate, setManualUpdateState] = useState({
+    display: false,
+    questionNumber: 1,
+    allowAnswer: true,
+  })
 
-  let milliseconds = 100;
-  let seconds = 0;
+  let milliseconds = 100
+  let seconds = 0
 
   const correctAnswer = () => {
-    const answerTime = +(seconds + "." + milliseconds);
-    const questionTime = +data.question[appState.state].timer;
-    const correctTime = questionTime - answerTime;
-    const score = +userResult.score + correctTime;
+    const answerTime = +(seconds + '.' + milliseconds)
+    const questionTime = +data.question[questionNumber].timer
+    const correctTime = questionTime - answerTime
+    const score = +userResult.score + correctTime
     const obj = {
-      rank: appState.state,
+      rank: questionNumber,
       score: score.toFixed(2),
-      totalCorrectAnswers: userResult["totalCorrectAnswers"] + 1
-      
-    };
-    actions.storeAnswer(obj, userResult["id"]);
-  };
+      totalCorrectAnswers: userResult['totalCorrectAnswers'] + 1,
+    }
+    actions.storeAnswer(obj, userResult['id'])
+  }
 
   const updateCurrentQuestionClick = () => {
     const obj = {
-      rank: appState.state,
-    };
-    actions.storeAnswer(obj, userResult["id"]);
-  };
+      rank: questionNumber,
+    }
+    actions.storeAnswer(obj, userResult['id'])
+  }
   const onCompleteTimer = () => {
-    isClickable(false);
-    milliseconds = 0;
-    console.log(user, "userss");
-    if (user.role == "admin" || JSON.stringify(user.role == "admin")) {
-      console.log("completessd timer asdasd");
-      firebase
-        .database()
-        .ref("appState")
-        .orderByChild("questionStatus")
-        .once("value", snapshot => {
-          snapshot.forEach(function(data) {
-            data.ref.child("questionStatus").set(false);
-          });
-        });
-    }
-    data.question[appState.state].answer.forEach((e, i) => {
-      if (e.isTrue) {
-        answerSwitch(i + 1, "green");
-        return;
-      }
-    });
-  };
-  const answerSwitch = (answer, color) => {
-    switch (answer) {
-      case 1:
-        setAnswerColor1(color);
-        break;
-      case 2:
-        setAnswerColor2(color);
-        break;
-      case 3:
-        setAnswerColor3(color);
-        break;
-      default:
-        setAnswerColor4(color);
-        break;
-    }
-  };
+    setQuestionStatus(false)
+  }
+
   useEffect(() => {
-    if (!appState.questionStatus) {
-      isClickable(false);
-      setDuration(0);
+    setOptionNumberClicked(-1)
+    setTimer((timer) => timer + 1)
+  }, [questionNumber])
+
+  useEffect(() => {
+    if (questionAskedTime) {
+      const secondsPassedAfterQuestion =
+        (new Date().getTime() - new Date(questionAskedTime).getTime()) / 1000
+      if (secondsPassedAfterQuestion > 20) setDuration(0)
+      else
+        setDuration(
+          data.question[questionNumber].timer - secondsPassedAfterQuestion,
+        )
+    }
+  }, [questionAskedTime])
+
+  useEffect(() => {
+    if (appState.questionStatus !== questionStatus) {
+      debugger
+      setQuestionStatus(appState.questionStatus)
+    }
+    // if (questionNumber === -1) {
+    // 	setQuestionNumber(appState.state);
+    // }
+    if (appState.timestamp !== questionAskedTime) {
+      setQuestionAskedTime(appState.timestamp)
+      setQuestionNumber(appState.state)
+
+      // if (questionNumber !== -1) setQuestionNumber((item) => item + 1);
+    }
+  }, [appState])
+
+  const setShowCorrectAnswer = (value) => {
+    let stateToSet
+    if (value == 'next-question') {
+      stateToSet = false
     } else {
-      isClickable(true);
-      setDuration(data.question[appState.state].timer - 1);
-      setAnswerColor1("purple");
-      setAnswerColor2("purple");
-      setAnswerColor3("purple");
-      setAnswerColor4("purple");
+      stateToSet = !showAnswer
     }
-    setTimer(timer => timer + 1);
-  }, [appState]);
-
-  const handleClickAnswerCommon = (isTrue, value) => {
-    if (clickable) {
-      if (isTrue){
-        correctAnswer();
-      }else{
-        updateCurrentQuestionClick();
-      }
-      answerSwitch(value, "grey");
-      isClickable(false);
-    }
-  };
-
-  const onClickNextQuestion = () => {
-    const milliseconds = appState.state + 1;
-    // localStorage.setItem("close",false);
     firebase
       .database()
-      .ref("appState")
-      .orderByChild("state")
-      .once("value", snapshot => {
-        snapshot.forEach(function(data) {
-          data.ref.child("state").set(milliseconds);
-          data.ref.child("questionStatus").set(true);
-        });
-      });
-  };
+      .ref('answerState')
+      .orderByChild('state')
+      .once('value', (snapshot) => {
+        snapshot.forEach(function (data) {
+          data.ref.set(stateToSet)
+        })
+      })
+  }
+
+  const handleClickAnswerCommon = (isTrue, value) => {
+    if (isTrue) {
+      correctAnswer()
+    } else {
+      updateCurrentQuestionClick()
+    }
+    setOptionNumberClicked(value)
+  }
+
+  const onClickNextQuestion = (isManualClicked = false) => {
+    if (!isManualClicked) setShowCorrectAnswer('next-question')
+    const updatedQuestionNumber = isManualClicked
+      ? manualUpdate?.questionNumber - 1
+      : questionNumber + 1
+    firebase
+      .database()
+      .ref('appState')
+      .orderByChild('state')
+      .once('value', (snapshot) => {
+        snapshot.forEach(function (data) {
+          debugger
+          data.ref.child('state').set(updatedQuestionNumber)
+          data.ref
+            .child('questionStatus')
+            .set(isManualClicked ? manualUpdate?.allowAnswer : true)
+          data.ref.child('timestamp').set(new Date().toISOString())
+        })
+      })
+  }
 
   const children = ({ remainingTime }) => {
     if (milliseconds === 10) {
-      milliseconds = 100;
+      milliseconds = 100
     } else {
-      milliseconds--;
+      milliseconds--
     }
-    seconds = remainingTime % 1000;
+    seconds = remainingTime % 1000
     if (seconds < 1) {
-      seconds = 0 + "0";
-      milliseconds = 0 + "0";
+      seconds = 0 + '0'
+      milliseconds = 0 + '0'
     }
 
-    return `${seconds}:${milliseconds}`;
-  };
-  const lineBreakString = value => {
-    let result = value.split("/");
+    return `${seconds}:${milliseconds}`
+  }
+  const lineBreakString = (value) => {
+    let result = value.split('/')
 
     return (
       <span>
         {result[0]} <br />
         {result[1]}
       </span>
-    );
-  };
+    )
+  }
+
+  const displayOptionClass = (optionNumber) => {
+    if (showAnswer) {
+      if (data.question[questionNumber].answer[optionNumber - 1].isTrue)
+        return 'green'
+      else if (optionNumber === optionNumberClicked) return 'red'
+      else return 'purple'
+    } else {
+      if (optionNumberClicked !== -1 && optionNumber === optionNumberClicked)
+        return 'grey'
+      else return 'purple'
+    }
+  }
+
+  if (questionNumber == -1 || appState.state === -1) {
+    return <CircularProgress />
+  }
+
+  console.log('Safwan', userResult.rank == questionNumber)
+
+  const Option = ({ index }) => (
+    <div>
+      <Button
+        onClick={() =>
+          handleClickAnswerCommon(
+            data.question[questionNumber].answer[index].isTrue,
+            index + 1,
+          )
+        }
+        className={displayOptionClass(index + 1)}
+        variant="outlined"
+        color="primary"
+        disabled={
+          !questionStatus ||
+          optionNumberClicked !== -1 ||
+          userResult.rank == questionNumber
+        }
+      >
+        {lineBreakString(data.question[questionNumber].answer[index].details)}
+      </Button>
+    </div>
+  )
 
   return (
     <div className="answer_component">
       <span align="left" className="question_no_container">
-        Question {appState.state + 1} / 40
+        Question {questionNumber + 1} / 40
       </span>
       <div className="timer" align="center">
         <CountDownWrapper
@@ -163,96 +227,111 @@ const Answers = ({ isAdmin, user, appState, userResult, actions }) => {
       </div>
 
       <div align="center" className="question">
-        <p>{data.question[appState.state].description}</p>
-        <p>{data.question[appState.state].description2}</p>
+        <p>{data.question[questionNumber].description}</p>
+        <p>{data.question[questionNumber].description2}</p>
       </div>
 
       <div className="answer_container">
-        <div>
-          <Button
-            onClick={() =>
-              handleClickAnswerCommon(
-                data.question[appState.state].answer[0].isTrue,
-                1
-              )
-            }
-            className={answerColor1}
-            variant="outlined"
-            color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
-          >
-            {lineBreakString(data.question[appState.state].answer[0].details)}
-          </Button>
-        </div>
-        <div>
-          <Button
-            onClick={() =>
-              handleClickAnswerCommon(
-                data.question[appState.state].answer[1].isTrue,
-                2
-              )
-            }
-            className={answerColor2}
-            variant="outlined"
-            color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
-          >
-            {lineBreakString(data.question[appState.state].answer[1].details)}
-          </Button>
-        </div>
+        <Option index={0} />
+        <Option index={1} />
       </div>
       <div className="answer_container">
-        <div>
-          <Button
-            onClick={e =>
-              handleClickAnswerCommon(
-                data.question[appState.state].answer[2].isTrue,
-                3
-              )
-            }
-            className={answerColor3}
-            variant="outlined"
-            color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
-          >
-            {lineBreakString(data.question[appState.state].answer[2].details)}
-          </Button>
-        </div>
-        <div>
-          <Button
-            onClick={e =>
-              handleClickAnswerCommon(
-                data.question[appState.state].answer[3].isTrue,
-                4
-              )
-            }
-            className={answerColor4}
-            variant="outlined"
-            color="primary"
-            disabled={!appState.questionStatus || userResult.rank == appState.state}
-          >
-            {lineBreakString(data.question[appState.state].answer[3].details)}
-          </Button>
-        </div>
+        <Option index={2} />
+        <Option index={3} />
       </div>
 
       {isAdmin && (
-        <Button
-          onClick={onClickNextQuestion}
-          className="admin_button"
-          variant="contained"
-          color="primary"
-        >
-          Next Question
-        </Button>
+        <>
+          <div className="answer_container">
+            <div>
+              <Button
+                onClick={() => onClickNextQuestion(false)}
+                className="admin_button"
+                variant="contained"
+                color="primary"
+              >
+                Next Question
+              </Button>
+            </div>
+            <div>
+              <Button
+                onClick={() => setShowCorrectAnswer('show-hide')}
+                className="admin_button"
+                variant="contained"
+                color="primary"
+              >
+                {showAnswer ? 'Hide Answer' : 'Show Answer'}
+              </Button>
+            </div>
+            <div style={{ marginTop: '15px' }}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={(e) =>
+                      setManualUpdateState({
+                        ...manualUpdate,
+                        display: e.target.checked,
+                      })
+                    }
+                    defaultChecked={false}
+                  />
+                }
+                label={<h4>Contol Manually</h4>}
+              />
+            </div>
+          </div>
+          {manualUpdate.display && (
+            <div className="answer_container">
+              <div>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        onChange={(e) =>
+                          setManualUpdateState({
+                            ...manualUpdate,
+                            allowAnswer: e.target.checked,
+                          })
+                        }
+                      />
+                    }
+                    label="Allow user to answer"
+                  />
+                </FormGroup>
+              </div>
+              <div>
+                <TextField
+                  defaultValue={1}
+                  type="number"
+                  onChange={(e) =>
+                    setManualUpdateState({
+                      ...manualUpdate,
+                      questionNumber: parseInt(e.target.value),
+                    })
+                  }
+                  label="Question number"
+                />
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => onClickNextQuestion(true)}
+                >
+                  Update
+                </Button>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
-  );
-};
-const mapStateToProps = props => ({});
+  )
+}
+const mapStateToProps = (props) => ({})
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(Actions, dispatch)
-});
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(Actions, dispatch),
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Answers);
+export default connect(mapStateToProps, mapDispatchToProps)(Answers)

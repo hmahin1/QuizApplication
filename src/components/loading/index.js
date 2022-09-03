@@ -6,13 +6,14 @@ import Main from "../main/main";
 import * as Actions from "../../actions/userActions";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const Loading = ({ isLoggedIn, actions, user, appState, userResult }) => {
+const Loading = ({ isLoggedIn, actions, user, appState, userResult, showAnswer }) => {
   const [Loadingg, isLoadingg] = useState(false);
 
   useEffect(() => {
     actions.getAppState();
     if (localStorage.getItem("id")) {
       actions.getLoginState();
+      actions.getShowAnswerState();
       actions.getUserResult(localStorage.getItem("id"));
       actions.getUserData(localStorage.getItem("id"));
     }
@@ -25,7 +26,7 @@ const Loading = ({ isLoggedIn, actions, user, appState, userResult }) => {
       {!Loadingg ? (
         <div className="progress_bar" align="center">
           <CircularProgress
-            style={{ color: "#1A4173" }}
+            style={{ color: "#074a6e" }}
             className="progress_barColor"
             color="primary"
           />
@@ -35,6 +36,7 @@ const Loading = ({ isLoggedIn, actions, user, appState, userResult }) => {
           <Main
             userResult={userResult}
             appState={appState}
+            showAnswer={showAnswer}
             user={user}
             isLoggedIn={isLoggedIn}
           />
@@ -48,7 +50,8 @@ const mapStateToProps = props => ({
   isLoggedIn: props.userReducer.isLoggedIn,
   user: props.userReducer.user,
   userResult: props.userReducer.userResult,
-  appState: props.userReducer.appState
+  appState: props.userReducer.appState,
+  showAnswer:props.userReducer.showAnswer
 });
 
 const mapDispatchToProps = dispatch => ({

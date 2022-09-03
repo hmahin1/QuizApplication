@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a4173;
+  background-color: #074a6e;
   border-color: #191919;
   padding: 10px;
 }
@@ -21,7 +21,7 @@
   color: white;
   background-image: linear-gradient(
     to bottom,
-    #1a4173,
+    #074a6e,
     #102747,
     #102747,
     #102747,
@@ -35,7 +35,7 @@
   color: white;
   background-image: linear-gradient(
     to bottom,
-    #1a4173,
+    #074a6e,
     #102747,
     #102747,
     #102747,
@@ -80,7 +80,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a4173;
+    background-color: #074a6e;
   }
   .main_username {
     color: white;

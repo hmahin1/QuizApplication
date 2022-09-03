@@ -5,7 +5,7 @@ import CustomizedInputs from "../input/index";
 import Register from "../register/register";
 import Result from "../result/index";
 
-const Main = ({ isLoggedIn, user, appState, userResult, error }) => {
+const Main = ({ isLoggedIn, user, appState, userResult, showAnswer, error }) => {
   const [rank, setRank] = useState(0);
 
   const result = data => {
@@ -62,6 +62,7 @@ const Main = ({ isLoggedIn, user, appState, userResult, error }) => {
                 appState={appState}
                 isAdmin={user.role === "admin" ? true : false}
                 user={user}
+                showAnswer={showAnswer}
                 userResult={userResult}
               />
             </div>

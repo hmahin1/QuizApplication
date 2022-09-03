@@ -3,7 +3,9 @@ import {
   LOGIN_FAILED,
   GET_APP_STATE,
   START_QUIZ,
-  USER_RESULT
+  USER_RESULT,
+  SHOW_ANSWER,
+  LOGOUT
 } from "../constants/action-types";
 
 const initialState = {
@@ -33,6 +35,15 @@ const userReducer = (state = initialState, action) => {
       error: true
     };
   }
+  if (action.type === LOGOUT) {
+    return {
+      ...state,
+      error: false,
+      loginSuccess: false,
+      isLoggedIn: false,
+      errorMessage: ''
+    };
+  }
   if (action.type === GET_APP_STATE) {
     return {
       ...state,
@@ -43,6 +54,12 @@ const userReducer = (state = initialState, action) => {
     return {
       ...state,
       isLoggedIn: true
+    };
+  }
+  if (action.type === SHOW_ANSWER) {
+    return {
+      ...state,
+      showAnswer: action.payload
     };
   }
   if (action.type === USER_RESULT) {

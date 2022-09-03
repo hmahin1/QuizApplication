@@ -4,7 +4,9 @@ import {
   LOGIN_FAILED,
   START_QUIZ,
   USER_RESULT,
-  USER_RESULT_FAILED
+  USER_RESULT_FAILED,
+  SHOW_ANSWER,
+  LOGOUT,
 } from "../constants/action-types";
 import firebase from "firebase";
 
@@ -18,7 +20,7 @@ export const getUserData = value => {
       .once("value")
       .then(snapshot => {
         if (snapshot.exists()) {
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log(data.child("login").val(), "Error: passed snapsot");
 
             if (
@@ -56,7 +58,7 @@ export const getAppState = () => {
       .ref("appState")
       .on("value", snapshot => {
         if (snapshot.exists()) {
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log(data.val(), "awssssawssssawssss");
             dispatch({ type: GET_APP_STATE, payload: data.val() });
           });
@@ -74,7 +76,7 @@ export const getLoginState = () => {
       .ref("loginState")
       .on("value", snapshot => {
         if (snapshot.exists()) {
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             const dataValue = data.val();
             if (dataValue.state) {
               dispatch({ type: START_QUIZ, payload: "" });
@@ -95,9 +97,8 @@ export const startQuiz = () => {
       .ref("loginState")
       .orderByChild("state")
       .once("value", snapshot => {
-        snapshot.forEach(function(data) {
+        snapshot.forEach(function (data) {
           data.ref.child("state").set(true);
-          dispatch({ type: START_QUIZ, payload: "" });
         });
       });
   };
@@ -113,7 +114,7 @@ export const getUserResult = value => {
       .on("value", snapshot => {
         if (snapshot.exists()) {
           console.log("Error: passed");
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log(data.val(), "user ersuultss");
             dispatch({ type: USER_RESULT, payload: data.val() });
           });
@@ -137,16 +138,16 @@ export const storeAnswer = (obj, value) => {
       .then(snapshot => {
         if (snapshot.exists()) {
           console.log("Error: passed");
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log("Error: passed", data.val());
-            if(obj.score && obj.totalCorrectAnswers){
+            if (obj.score && obj.totalCorrectAnswers) {
               data.ref.child("score").set(obj.score);
               data.ref.child("totalCorrectAnswers").set(obj.totalCorrectAnswers);
               data.ref.child("rank").set(obj.rank);
-            }else{
-              data.ref.child("rank").set(obj.rank);  
+            } else {
+              data.ref.child("rank").set(obj.rank);
             }
-                      });
+          });
         } else {
           console.log("Error: failed");
           dispatch({ type: USER_RESULT_FAILED, payload: "" });
@@ -167,12 +168,12 @@ export const configureUserResults = (obj, value) => {
       .then(snapshot => {
         if (snapshot.exists()) {
           console.log("Error: passed");
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log("Error: passed", data.val());
-              data.ref.child("score").set(obj.score);
-              data.ref.child("totalCorrectAnswers").set(obj.totalCorrectAnswers);
-              data.ref.child("rank").set(obj.rank);
-                      });
+            data.ref.child("score").set(obj.score);
+            data.ref.child("totalCorrectAnswers").set(obj.totalCorrectAnswers);
+            data.ref.child("rank").set(obj.rank);
+          });
         } else {
           console.log("Error: failed");
         }
@@ -191,9 +192,9 @@ export const configureUser = (value) => {
       .then(snapshot => {
         if (snapshot.exists()) {
           console.log("Error: passed");
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log("Error: passed", data.val());
-            data.ref.child("login").set(false);  
+            data.ref.child("login").set(false);
           });
         } else {
           console.log("Error: failed");
@@ -212,7 +213,7 @@ export const configureAppState = () => {
       .then(snapshot => {
         if (snapshot.exists()) {
           console.log("Error: passed");
-          snapshot.forEach(function(data) {
+          snapshot.forEach(function (data) {
             console.log("Error: passed", data.val());
             data.ref.child("questionStatus").set(true);
             data.ref.child("showResult").set(false);
@@ -234,9 +235,66 @@ export const changeLoginState = () => {
       .ref("loginState")
       .orderByChild("state")
       .once("value", snapshot => {
-        snapshot.forEach(function(data) {
+        snapshot.forEach(function (data) {
           data.ref.child("state").set(false);
         });
       });
   };
 };
+
+export const getShowAnswerState = () => {
+  return dispatch => {
+    firebase
+      .database()
+      .ref("answerState")
+      .on("value", snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function (data) {
+            console.log(data.val(), "awssssawssssawssss");
+            dispatch({ type: SHOW_ANSWER, payload: data.val() });
+          });
+        }
+      });
+  };
+};
+
+export const userLogout = (id) => {
+  console.log('asdasd',id)
+  return dispatch => {
+    firebase
+      .database()
+      .ref("users")
+      .orderByChild("id")
+      .equalTo(id)
+      .once("value")
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function (data) {
+            console.log(data.child("login").val(), "Error: passed snapsot");
+            data.ref.child("login").set(false);
+            dispatch({ type: LOGOUT, payload: '' });
+            localStorage.clear();
+          });
+        }
+      }); 
+  }
+  /* return dispatch => {
+    firebase
+      .database()
+      .ref("users")
+      .orderByChild("id")
+      .equalTo(id)
+      .once("value")
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          snapshot.forEach(function (data) {
+            console.log(data.child("login").val(), "Error: passed snapsot");
+            data.ref.child("login").set(false);
+            dispatch({ type: LOGOUT, payload: '' });
+            localStorage.clear();
+            
+          });
+        }
+      });
+  }; */
+}
